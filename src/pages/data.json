@@ -1,0 +1,174 @@
+{
+  "heroSlides": [
+    {
+      "title": "Knock on Every Door -<br />Digitally!",
+      "description": "Reach prospective residents or customers through targeted ad campaigns.",
+      "image": "/banner-1.png"
+    },
+    {
+      "title": "Trusted Ads. Delivered <br /> Where It Matters.",
+      "description": "Be seen in the groups your audience checks every day. Direct, <br /> relevant, and effective.",
+      "image": "/banner-2.png"
+    },
+    {
+      "title": "Smart Ads. <br />Smarter Societies.",
+      "description": "Your WhatsApp group is valuable — monetize it with curated promotions and boost community funds.",
+      "image": "/banner-3.png"
+    }
+  ],
+  "about_us": {
+    "title": "About Us",
+    "description_one": "<p class=\"paragraph\">At <strong>Adz10x.com</strong> we're redefining how residential societies generate value from their digital presence. Our goal is simple yet powerful - <strong>to empower gated communities to monetize their visibility by connecting them with top brands for targeted, non-intrusive advertising opportunities.</strong></p>",
+    "description_two": "We believe societies deserve more than just maintenance collections - they deserve a share in the digital economy. By facilitating verified ad campaigns within residential ecosystems, we are creating a new income stream for societies while offering brands authentic, hyperlocal visibility."
+  },
+  "offering": {
+    "title": "Our Offerings",
+    "sub_heading": "Unlock high-impact marketing opportunities through hyper-targeted campaigns powered by WhatsApp group.",
+    "offering_content": [
+      {
+        "heading": "Lead Generation Campaigns",
+        "description": "Capture high-intent leads by targeting the right audience and engaging them with compelling CTAs that drive action."
+      },
+      {
+        "heading": "Branding Campaigns",
+        "description": "Amplify your brand visibility and credibility through consistent, localized messaging. Perfect for product launches awareness drives, and reputation building."
+      },
+      {
+        "heading": "Surveys",
+        "description": "Gain deep insights into customer preferences and behaviour with short, high-response surveys—ideal for product feedback, market research, and sentiment analysis."
+      },
+      {
+        "heading": "Hyperlocal Promotions",
+        "description": "Reach residents in gated societies, townships, and local clusters with tailored offers and location-specific campaigns that resonate."
+      },
+      {
+        "heading": "WhatsApp-First Engagements",
+        "description": "From announcements to click-to-chat CTAs, our campaigns are built for high engagement on WhatsApp—where your customers already are."
+      }
+    ]
+  },
+  "banner_1": {
+    "title": "Why Your Society Shouldn't Miss This Opportunity",
+    "features": [
+      {
+        "heading": "Turn Daily Engagement Into Monthly Earnings",
+        "description": "Monetize your WhatsApp groups, with zero disruption to your society's routine."
+      },
+      {
+        "heading": "100% Control, 0% Intrusion",
+        "description": "You approve every ad — nothing goes live without your consent."
+      },
+      {
+        "heading": "Extra Income Without Raising Maintenance",
+        "description": "Add a new revenue stream that supports society expenses or events — without increasing member charges."
+      },
+      {
+        "heading": "Real-Time Dashboard & Instant Payouts",
+        "description": "Track earnings instantly. Withdraw directly to the society's account with no delays."
+      },
+      {
+        "heading": "Be the First Mover. Stay Ahead.",
+        "description": "Join the early adopters turning societies into smart revenue hubs."
+      }
+    ]
+  },
+  "banner_2": {
+    "title": "Why Brands Shouldn’t Miss This Opportunity",
+    "features": [
+      {
+        "heading": "Direct Access to Hyper-Local Audiences",
+        "description": "Instantly reach gated communities with verified member engagement."
+      },
+      {
+        "heading": "10X Higher Attention Span than Traditional Digital Ads",
+        "description": "WhatsApp is personal — your message gets seen, not skipped."
+      },
+      {
+        "heading": "Boost Conversions with Personalized Campaigns",
+        "description": "Customize messaging per society for better relevance and higher ROI."
+      },
+      {
+        "heading": "High Trust = Higher Influence",
+        "description": "Your brand gains instant credibility by being featured on trusted society platforms."
+      },
+      {
+        "heading": "Be the Early Bird",
+        "description": "Get ahead of your competitors in a space still fresh and unsaturated."
+      }
+    ]
+  },
+  "faqData": [
+    {
+      "title": "What is ADZ10X and how does it work?",
+      "content": "ADZ10X enables societies to generate income by running digital brand campaigns through their community WhatsApp groups."
+    },
+    {
+      "title": "How do societies earn from this platform?",
+      "content": "Societies earn each time a campaign is approved, shared, and reported, as per the agreed revenue share."
+    },
+    {
+      "title": "Is this service free for societies?",
+      "content": "Yes, there are no charges — societies earn, we handle the rest."
+    },
+    {
+      "title": "Can societies control what ads are shown?",
+      "content": "Absolutely. Every campaign requires approval from the society admin before going live."
+    },
+    {
+      "title": "What kind of brands advertise on ADZ10X?",
+      "content": "Only verified and quality brands across sectors like healthcare, FMCG, real estate,education, and more."
+    },
+    {
+      "title": "How quickly can a campaign go live?",
+      "content": "Campaigns can go live within 24–72 hours after approvals and funding confirmation."
+    },
+    {
+      "title": " Is resident data shared or used?",
+      "content": "Never. We do not collect or share any resident data — full privacy is maintained."
+    },
+    {
+      "title": " What is the minimum payout amount?",
+      "content": "Earnings can be withdrawn directly to society accounts with no minimum limit."
+    },
+    {
+      "title": "Can companies choose specific societies to target?",
+      "content": "Yes, brands can select societies based on city , Area, for the campaigns."
+    },
+    {
+      "title": "What support is available for onboarding or issues?",
+      "content": "Our dedicated support and relationship managers are always ready to help via email or phone."
+    }
+  ],
+  "company_logo": [
+    {
+      "id": 1,
+      "image": "/company-logos/company_logo1.png",
+      "alt": "Company Logo 1"
+    },
+    {
+      "id": 2,
+      "image": "/company-logos/company_logo2.png",
+      "alt": "Company Logo 2"
+    },
+    {
+      "id": 3,
+      "image": "/company-logos/company_logo3.png",
+      "alt": "Company Logo 3"
+    },
+    {
+      "id": 4,
+      "image": "/company-logos/company_logo4.png",
+      "alt": "Company Logo 4"
+    },
+    {
+      "id": 5,
+      "image": "/company-logos/company_logo5.png",
+      "alt": "Company Logo 5"
+    },
+    {
+      "id": 6,
+      "image": "/company-logos/company_logo3.png",
+      "alt": "Company Logo 3"
+    }
+  ]
+}

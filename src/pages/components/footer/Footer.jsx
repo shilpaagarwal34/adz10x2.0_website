@@ -19,7 +19,7 @@ const Footer = () => {
         <section className="foot_section">
           <div className="container">
             <div className="foot_box row">
-              <div className="col-lg-6">
+              <div className="col-lg-5">
                 <Link to={"/"}>
                   <img
                     className="footer-icon"
@@ -27,12 +27,19 @@ const Footer = () => {
                     alt=""
                   />
                 </Link>
-                <p className="mt-4">
+                {/* <p className="mt-4">
                   <b>Adz10x</b>, Pune's most trusted customer-centric real
                   estate company, is driven by innovation and expert management.
                   With a focus on quality and tech-driven solutions, it
                   redefines real estate while expanding trusted projects and
                   brands.
+                </p> */}
+                <p className="mt-4" style={{ textAlign: "justify" }}>
+                  <b>Adz10x</b> is India’s first society-powered ad network,
+                  helping communities earn from verified brand campaigns while
+                  giving businesses trusted hyperlocal reach. We bring
+                  transparency, consent-based advertising, and value creation
+                  for both societies and brands.
                 </p>
                 <div className="social-icons">
                   <a href="" target="_blank">
@@ -69,13 +76,24 @@ const Footer = () => {
                   </a>
                 </div>
               </div>
-              <div className="col-lg-3 col-6">
-                <div className="footer-links">
+              <div className="col-lg-4 col-6">
+                <div className="footer-links mb-2">
                   <h1>Start a conversation</h1>
-                  {/* <a href="mailto:sales@adz10x.com">sales@adz10x.com</a> */}
-                  {/* <br /> */}
                   <a href="mailto:support@adz10x.com">support@adz10x.com</a>
                 </div>
+                <div className="footer-links mb-2">
+                  <h6 className="text-white">Society Onboarding & Society Queries?</h6>
+                  <a href="tel:+919271155815">+91 9271155815</a>
+                </div>
+                 <div className="footer-links mb-2">
+                  <h6 className="text-white">Brand / Company Campaign Queries?</h6>
+                  <a href="tel:+919271155816">+91 9271155816</a>
+                </div>
+                <div className="footer-links mb-2">
+                  <h6 className="text-white">Corporate & Customer Support</h6>
+                  <a href="tel:+919271155817">+91 9271155817</a>
+                </div>
+                
               </div>
               <div className="col-lg-3 col-6">
                 <div className="footer_more">
@@ -120,3 +138,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

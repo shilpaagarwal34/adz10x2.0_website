@@ -23,6 +23,25 @@ const Banner_slider = () => {
     journey_steps = [],
   } = data.hero_video;
   const [videoError, setVideoError] = React.useState(false);
+  const [shouldLoadVideo, setShouldLoadVideo] = React.useState(false);
+  const heroRef = React.useRef(null);
+
+  React.useEffect(() => {
+    if (!heroRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadVideo(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15, rootMargin: "200px 0px" }
+    );
+
+    observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
   const platformIconMap = {
     "WhatsApp Promotional Day": FaWhatsapp,
     "Lift Branding Panels": FaBuilding,
@@ -33,21 +52,21 @@ const Banner_slider = () => {
   };
 
   return (
-    <div id="home" className="video_hero">
+    <div id="home" className="video_hero" ref={heroRef}>
       <div
         className="video_hero_fallback_bg"
         style={{ backgroundImage: `url(${fallback_image || poster_image})` }}
       ></div>
 
-      {!videoError && video_url ? (
+      {!videoError && video_url && shouldLoadVideo ? (
         <video
           className="video_hero_bg"
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
-          poster={poster_image}
+          preload="none"
+          poster={poster_image || fallback_image}
           onError={() => setVideoError(true)}
         >
           <source src={video_url} type="video/mp4" />

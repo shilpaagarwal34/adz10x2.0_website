@@ -1,35 +1,38 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import "./index.css";
-import Accordian from './components/accordian/Accordian.jsx';
-import Banner_Two from './components/banner_2/Banner_Two.jsx';
-import Banner_One from './components/banner_1/Banner_One.jsx';
-import Offering from './components/offering/Offering.jsx';
-import About from './components/about/About.jsx';
-import Company_logo from './components/company_logo/Company_logo.jsx';
 import Banner_slider from './components/banner_slider/Banner_slider.jsx';
-import Inventory from './components/inventory/Inventory.jsx';
-import Brands from './components/brands/Brands.jsx';
+
+const About = lazy(() => import('./components/about/About.jsx'));
+const Offering = lazy(() => import('./components/offering/Offering.jsx'));
+const Inventory = lazy(() => import('./components/inventory/Inventory.jsx'));
+const Brands = lazy(() => import('./components/brands/Brands.jsx'));
+const Banner_One = lazy(() => import('./components/banner_1/Banner_One.jsx'));
+const Banner_Two = lazy(() => import('./components/banner_2/Banner_Two.jsx'));
+const Accordian = lazy(() => import('./components/accordian/Accordian.jsx'));
+const Company_logo = lazy(() => import('./components/company_logo/Company_logo.jsx'));
 
 const Index = () => {
     return (
         <>
             <Banner_slider />
 
-            <About />
+            <Suspense fallback={null}>
+                <About />
 
-            <Offering />
+                <Offering />
 
-            <Inventory />
+                <Inventory />
 
-            <Brands />
+                <Brands />
 
-            <Banner_One />
+                <Banner_One />
 
-            <Banner_Two />
+                <Banner_Two />
 
-            <Accordian />
+                <Accordian />
 
-            <Company_logo />
+                <Company_logo />
+            </Suspense>
 
         </>
     )

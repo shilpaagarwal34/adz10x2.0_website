@@ -125,7 +125,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <a
-                href="https://portal.adz10x.com/register"
+                href="https://adz10x.in/register"
                 target="_blank"
                 className="btn navbar-btn"
               >

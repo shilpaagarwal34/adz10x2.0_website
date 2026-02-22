@@ -6,14 +6,14 @@ export default function GetStartedBtn({ accountType = "default" }) {
     (window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1");
 
-  const portalBase = isLocal ? "http://localhost:4000" : "https://portal.adz10x.com";
+  const registerBase = isLocal ? "http://localhost:4000" : "https://adz10x.in";
 
   const signupUrl =
     accountType === "society"
-      ? `${portalBase}/register?step=2&type=society`
+      ? `${registerBase}/register?step=2&type=society`
       : accountType === "company"
-      ? `${portalBase}/register?step=2&type=company`
-      : `${portalBase}/register?step=1`;
+      ? `${registerBase}/register?step=2&type=company`
+      : `${registerBase}/register`;
 
   return (
     <a

@@ -5,8 +5,10 @@ import Banner_Two from './components/banner_2/Banner_Two.jsx';
 import Banner_One from './components/banner_1/Banner_One.jsx';
 import Offering from './components/offering/Offering.jsx';
 import About from './components/about/About.jsx';
-// import Company_logo from './components/company_logo/Company_logo.jsx';
+import Company_logo from './components/company_logo/Company_logo.jsx';
 import Banner_slider from './components/banner_slider/Banner_slider.jsx';
+import Inventory from './components/inventory/Inventory.jsx';
+import Brands from './components/brands/Brands.jsx';
 
 const Index = () => {
     return (
@@ -17,13 +19,17 @@ const Index = () => {
 
             <Offering />
 
+            <Inventory />
+
+            <Brands />
+
             <Banner_One />
 
             <Banner_Two />
 
             <Accordian />
 
-            {/* <Company_logo /> */}
+            <Company_logo />
 
         </>
     )

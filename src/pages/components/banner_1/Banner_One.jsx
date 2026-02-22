@@ -37,7 +37,7 @@ const Banner_One = () => {
                                 <div className="started-btn mt-5">
                                     {/* <button className="btn" type="button">Get Started &nbsp; <img src={arrow_right}
                                         alt="" /></button> */}
-                                         <GetStartedBtn />
+                                         <GetStartedBtn accountType="society" />
                                 </div>
                             </div>
                         </div>

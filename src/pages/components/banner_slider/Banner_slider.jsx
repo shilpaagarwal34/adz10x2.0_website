@@ -1,68 +1,99 @@
 import React from "react";
-
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Swiper, SwiperSlide } from "swiper/react";
-
+import {
+  FaWhatsapp,
+  FaBuilding,
+  FaBullhorn,
+  FaDoorOpen,
+  FaStore,
+  FaCalendarAlt,
+  FaCheckCircle,
+} from "react-icons/fa";
 import data from "../../data.json";
 
 const Banner_slider = () => {
+  const {
+    title,
+    description,
+    video_url,
+    poster_image,
+    fallback_image,
+    cta_text,
+    cta_link,
+    media_platforms,
+    journey_steps = [],
+  } = data.hero_video;
+  const [videoError, setVideoError] = React.useState(false);
+  const platformIconMap = {
+    "WhatsApp Promotional Day": FaWhatsapp,
+    "Lift Branding Panels": FaBuilding,
+    "Notice Board Sponsorship": FaBullhorn,
+    "Gate Entry/Exit Branding": FaDoorOpen,
+    "Society Kiosk": FaStore,
+    "Event Sponsorship": FaCalendarAlt,
+  };
+
   return (
-    <>
-      <div id="home">
-        {/* <!--banner slider start --> */}
-        <Swiper
-          className="swiper mySwiper"
-          modules={[Pagination, Navigation, Autoplay]}
-          navigation={true}
-          slidesPerView={1}
-          // autoplay={{
-          //   delay: 3000, // time in ms between slides
-          //   disableOnInteraction: false, // continue autoplay after user interacts
-          // }}
-          pagination={{ clickable: true }}
-          loop={true}
+    <div id="home" className="video_hero">
+      <div
+        className="video_hero_fallback_bg"
+        style={{ backgroundImage: `url(${fallback_image || poster_image})` }}
+      ></div>
+
+      {!videoError && video_url ? (
+        <video
+          className="video_hero_bg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster={poster_image}
+          onError={() => setVideoError(true)}
         >
-          <div className="swiper-wrapper">
-            {data.heroSlides.map((slide, index) => (
-              <SwiperSlide key={index} className="swiper-slide">
-                <div className="hero_banner">
-                  <div className="slide-content">
-                    <h1 dangerouslySetInnerHTML={{ __html: slide.title }}></h1>
-                    <p
-                      dangerouslySetInnerHTML={{ __html: slide.description }}
-                    ></p>
-                    {/* <button className="btn mt-2" type="button">
-                      Get Started
-                    </button> */}
-                    <a
-                      href="https://portal.adz10x.com/register"
-                      target="_blank"
-                      className="btn mt-2"
-                    >
-                      Get Started
-                    </a>
-                  </div>
-                  <div className="slide-image">
-                    <img
-                      src={slide.image}
-                      alt=""
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </div>
+          <source src={video_url} type="video/mp4" />
+        </video>
+      ) : null}
+
+      <div className="video_hero_overlay"></div>
+
+      <div className="container video_hero_content">
+        <div className="video_hero_left">
+          <span className="video_hero_badge">
+            <FaCheckCircle />
+            Verified Society Media Network
+          </span>
+          <h1>{title}</h1>
+          <p>{description}</p>
+          <a href={cta_link} target="_blank" rel="noreferrer" className="btn video_hero_btn">
+            {cta_text}
+          </a>
+          {journey_steps.length ? (
+            <div className="video_journey_strip">
+              {journey_steps.map((step, index) => (
+                <div key={step} className="video_journey_step">
+                  <span className="video_journey_index">{index + 1}</span>
+                  <span>{step}</span>
                 </div>
-              </SwiperSlide>
+              ))}
+            </div>
+          ) : null}
+        </div>
+
+        <div className="video_hero_right">
+          <h3>Multi-Platform Inventory</h3>
+          <div className="video_hero_platform_cards">
+            {media_platforms.map((item) => (
+              <div key={item} className="video_platform_card">
+                <span className="video_platform_icon">
+                  {React.createElement(platformIconMap[item] || FaBullhorn)}
+                </span>
+                <span className="video_platform_label">{item}</span>
+              </div>
             ))}
           </div>
-        </Swiper>
+        </div>
       </div>
-
-      {/* <!--banner slider end--> */}
-    </>
+    </div>
   );
 };
 

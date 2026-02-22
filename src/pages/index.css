@@ -106,6 +106,253 @@ body {
     font-weight: 700;
 }
 
+.video_hero {
+    position: relative;
+    min-height: 82vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.video_hero_bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.video_hero_fallback_bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    transform: scale(1.02);
+    animation: heroFallbackZoom 12s ease-in-out infinite alternate;
+}
+
+@keyframes heroFallbackZoom {
+    from {
+        transform: scale(1.02);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+.video_hero_overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 15%, rgba(1, 170, 35, 0.22), transparent 34%),
+        radial-gradient(circle at 72% 22%, rgba(1, 147, 255, 0.24), transparent 36%),
+        linear-gradient(90deg, rgba(8, 19, 31, 0.84) 0%, rgba(8, 19, 31, 0.58) 45%, rgba(8, 19, 31, 0.35) 100%);
+    z-index: 1;
+}
+
+.video_hero_content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 28px;
+    align-items: end;
+    padding-top: 130px;
+    padding-bottom: 80px;
+}
+
+.video_hero_badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 7px 14px;
+    margin-bottom: 16px;
+    backdrop-filter: blur(2px);
+}
+
+.video_hero_badge svg {
+    color: #4CFF7D;
+}
+
+.video_hero_left h1 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 68px;
+    font-weight: 800;
+    line-height: 1.04;
+    letter-spacing: 0.4px;
+    margin-bottom: 14px;
+    max-width: 800px;
+    text-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+}
+
+.video_hero_left p {
+    font-size: 19px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 720px;
+}
+
+.video_hero_btn {
+    margin-top: 14px;
+    background: linear-gradient(97.02deg, #01AA23 0%, #0193FF 100%);
+    border-radius: 8px;
+    color: #fff;
+    padding: 12px 34px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    box-shadow: 0 10px 30px rgba(1, 147, 255, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.video_hero_btn:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(1, 147, 255, 0.42);
+}
+
+.video_journey_strip {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.video_journey_step {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.33);
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: #fff;
+    animation: journeyPulse 2.2s ease-in-out infinite;
+}
+
+.video_journey_step:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.video_journey_step:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.video_journey_step:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.video_journey_step:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.video_journey_step:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.video_journey_index {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(1, 170, 35, 0.92), rgba(1, 147, 255, 0.92));
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+@keyframes journeyPulse {
+    0% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(1, 147, 255, 0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(1, 147, 255, 0.3);
+    }
+
+    100% {
+        transform: translateY(0);
+        box-shadow: 0 0 0 rgba(1, 147, 255, 0);
+    }
+}
+
+.video_hero_right {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.20), rgba(255, 255, 255, 0.08));
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    backdrop-filter: blur(7px);
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.video_hero_right h3 {
+    font-family: "Barlow Condensed", sans-serif;
+    font-size: 34px;
+    line-height: 1;
+    font-weight: 700;
+    margin-bottom: 14px;
+    letter-spacing: 0.5px;
+}
+
+.video_hero_platform_cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.video_platform_card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 12px;
+    padding: 10px;
+    transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.video_platform_card:hover {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
+}
+
+.video_platform_icon {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(1, 170, 35, 0.75), rgba(1, 147, 255, 0.78));
+    color: #fff;
+    font-size: 16px;
+    flex-shrink: 0;
+}
+
+.video_platform_label {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
 .swiper-pagination-bullet-active {
     background: #FFF !important;
 }
@@ -553,12 +800,128 @@ ul.custom-square-list li::before {
     min-height: 490px;
 }
 
+/* inventory + brands section */
+.inventory_section {
+    position: relative;
+    background: linear-gradient(180deg, rgba(1, 150, 228, 0.06) 0%, rgba(9, 74, 23, 0.06) 100%);
+}
+
+.inventory_section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 15% 18%, rgba(1, 170, 35, 0.08), transparent 30%),
+        radial-gradient(circle at 80% 40%, rgba(1, 147, 255, 0.11), transparent 35%);
+    pointer-events: none;
+}
+
+.inventory_card {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(5px);
+    padding: 18px;
+    box-shadow: 0 8px 24px rgba(16, 25, 35, 0.07);
+    transition: none;
+}
+
+.inventory_card_title_wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.inventory_icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(1, 170, 35, 0.86), rgba(1, 147, 255, 0.84));
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 15px;
+    flex-shrink: 0;
+}
+
+.inventory_card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: #242527;
+    line-height: 1.2;
+}
+
+.inventory_card p {
+    margin-bottom: 0;
+    color: #3f4c58;
+}
+
+/* apply highlight only on true hover devices */
+@media (hover: hover) and (pointer: fine) {
+    .inventory_card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .inventory_card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(15, 25, 35, 0.13);
+        background: rgba(255, 255, 255, 0.74);
+    }
+}
+
+.brands_grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.brand_chip {
+    border: 1px solid #d8e3eb;
+    border-radius: 999px;
+    padding: 8px 14px;
+    background: #f8fbfe;
+    font-size: 14px;
+    font-weight: 700;
+    color: #2c3b47;
+}
+
 /* new css end */
 
 
 /* responsive css start */
 
 @media screen and (max-width:768px) {
+
+    .video_hero {
+        min-height: 72vh;
+    }
+
+    .video_hero_content {
+        grid-template-columns: 1fr;
+        align-items: center;
+        gap: 16px;
+        padding-top: 95px;
+        padding-bottom: 45px;
+    }
+
+    .video_hero_left h1 {
+        font-size: 48px;
+    }
+
+    .video_hero_left p {
+        font-size: 15px;
+    }
+
+    .video_journey_step {
+        font-size: 11px;
+    }
+
+    .video_hero_right h3 {
+        font-size: 28px;
+    }
 
     .foot_box {
         padding: 30px 0;
@@ -591,6 +954,33 @@ ul.custom-square-list li::before {
 }
 
 @media screen and (max-width:425px) {
+
+    .video_hero_left h1 {
+        font-size: 38px;
+    }
+
+    .video_hero_btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .video_hero_platform_cards {
+        grid-template-columns: 1fr;
+    }
+
+    .video_platform_label {
+        font-size: 13px;
+    }
+
+    .video_journey_strip {
+        gap: 6px;
+    }
+
+    .video_journey_step {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
     .about_img img {
         height: 250px;
     }

@@ -1,4 +1,29 @@
 {
+  "hero_video": {
+    "title": "A Walk Through Society. Ads At Every High-Impact Touchpoint.",
+    "description": "Show your brand exactly where residents engage every day. From entry gate to lift, notice board, kiosk, events and WhatsApp - one unified campaign with Adz10X.",
+    "video_url": "/society-walkthrough.mp4",
+    "poster_image": "/banner-1.png",
+    "fallback_image": "/banner-1.png",
+    "cta_text": "Start Ad Journey",
+    "cta_link": "https://portal.adz10x.com/register",
+    "journey_steps": [
+      "Gate Branding",
+      "Lift Panels",
+      "Notice Board",
+      "Society Kiosk",
+      "Event Sponsorship",
+      "WhatsApp Promo"
+    ],
+    "media_platforms": [
+      "WhatsApp Promotional Day",
+      "Lift Branding Panels",
+      "Notice Board Sponsorship",
+      "Gate Entry/Exit Branding",
+      "Society Kiosk",
+      "Event Sponsorship"
+    ]
+  },
   "heroSlides": [
     {
       "title": "Knock on Every Door -<br />Digitally!",
@@ -95,6 +120,51 @@
         "heading": "Be the Early Bird",
         "description": "Get ahead of your competitors in a space still fresh and unsaturated."
       }
+    ]
+  },
+  "inventory": {
+    "title": "Our Inventory",
+    "subtitle": "You name it, we have it. Choose the right mix of digital and on-ground touchpoints.",
+    "items": [
+      {
+        "title": "Digital Assets",
+        "description": "WhatsApp group campaigns, society newsletter placements, and targeted community announcements."
+      },
+      {
+        "title": "Kiosk / Canopy",
+        "description": "On-ground engagement stalls to showcase products, demos, and interactive brand experiences."
+      },
+      {
+        "title": "Lift Branding Panels",
+        "description": "High-frequency residential visibility inside towers and high-footfall common movement zones."
+      },
+      {
+        "title": "Notice Board Sponsorship",
+        "description": "Persistent visibility on trusted community notice spaces where residents routinely engage."
+      },
+      {
+        "title": "Gate Entry/Exit Branding",
+        "description": "Prime impact placements at key touchpoints for recurring household impressions."
+      },
+      {
+        "title": "Event Sponsorship",
+        "description": "Sponsor society celebrations and drive recall through contextual, community-first activations."
+      }
+    ]
+  },
+  "brands": {
+    "title": "Industries We Cater To",
+    "categories": [
+      "FMCG",
+      "Lifestyle",
+      "Education",
+      "Healthcare",
+      "Automobile",
+      "FinTech",
+      "Real Estate",
+      "Electronics",
+      "Food & Beverage",
+      "Pet Care"
     ]
   },
   "faqData": [

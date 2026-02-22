@@ -12,6 +12,7 @@ import RefundPolicy from "./pages/components/RefundPolicy.jsx";
 import AcceptableUsePolicy from "./pages/components/AcceptableUsePolicy.jsx";
 import ShippingPolicy from "./pages/components/ShippingPolicy.jsx";
 import Disclaimer from "./pages/components/Disclaimer.jsx";
+import SupportChatbot from "./pages/components/chatbot/SupportChatbot.jsx";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} /> 
       </Routes>
       <Footer />
+      <SupportChatbot />
     </Router>
   );
 };

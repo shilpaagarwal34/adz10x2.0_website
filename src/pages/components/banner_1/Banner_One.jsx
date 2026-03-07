@@ -66,18 +66,41 @@ const Banner_One = () => {
                 >
                   <defs>
                     <linearGradient id="societyArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="#01AA23" />
+                      <stop offset="0%" stopColor="#0193FF" />
+                      <stop offset="50%" stopColor="#01AA23" />
                       <stop offset="100%" stopColor="#0193FF" />
                     </linearGradient>
                   </defs>
                   <path
                     className="banner4_society_arc"
-                    d="M 20 100 A 80 80 0 0 1 180 100"
+                    d="M 15 98 A 85 85 0 0 1 185 98"
                     fill="none"
                     stroke="url(#societyArcGrad)"
-                    strokeWidth="3"
+                    strokeWidth="8"
                     strokeLinecap="round"
                   />
+                  {/* Sunburst / gear at bottom center (Gupshup-style) */}
+                  <g className="banner4_society_sunburst" transform="translate(100, 98)">
+                    {Array.from({ length: 24 }).map((_, i) => {
+                      const angle = (i / 24) * 180 - 90;
+                      const rad = (angle * Math.PI) / 180;
+                      const x = 45 * Math.cos(rad);
+                      const y = 45 * Math.sin(rad);
+                      return (
+                        <line
+                          key={i}
+                          x1="0"
+                          y1="0"
+                          x2={x}
+                          y2={y}
+                          stroke="url(#societyArcGrad)"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          opacity="0.7"
+                        />
+                      );
+                    })}
+                  </g>
                 </svg>
                 <div className="banner4_society_arc_labels">
                   {["Earnings", "Control", "Income", "Payouts", "Growth"].map((word) => (
@@ -86,7 +109,6 @@ const Banner_One = () => {
                     </span>
                   ))}
                 </div>
-                <div className="banner4_society_semicircle_center" aria-hidden />
               </div>
             </div>
           </div>

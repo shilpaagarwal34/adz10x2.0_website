@@ -34,7 +34,7 @@ const PROCESS_STEPS = [
 ];
 
 const STEP_COUNT = PROCESS_STEPS.length;
-const STEP_DURATION_MS = 2500;
+const STEP_DURATION_MS = 1700;
 
 const Offering = () => {
   const [activeStep, setActiveStep] = useState(0);

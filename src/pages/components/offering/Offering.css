@@ -39,7 +39,7 @@
   padding: 1rem 0;
 }
 
-/* Single glowing gradient line (Blue to Green) behind cards */
+/* Gradient line (green → blue, like Get Started pill) behind cards */
 .offering_stepper_line {
   position: absolute;
   top: 50%;
@@ -47,9 +47,9 @@
   right: 5%;
   height: 4px;
   margin-top: -2px;
-  background: linear-gradient(90deg, #0193FF 0%, #01AA23 100%);
+  background: linear-gradient(90deg, #01AA23 0%, #0193FF 100%);
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(1, 147, 255, 0.4), 0 0 40px rgba(1, 170, 35, 0.2);
+  box-shadow: 0 2px 12px rgba(1, 170, 35, 0.3), 0 2px 20px rgba(1, 147, 255, 0.2);
   z-index: 0;
 }
 
@@ -106,7 +106,7 @@
 
 .offering_stepper_card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(1, 170, 35, 0.12);
+  box-shadow: 0 6px 24px rgba(1, 170, 35, 0.12), 0 6px 28px rgba(1, 147, 255, 0.08);
 }
 
 /* Completed & Active = fully opaque */
@@ -116,9 +116,9 @@
 }
 
 .offering_stepper_card_active {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: #01AA23;
-  box-shadow: 0 0 0 2px rgba(1, 170, 35, 0.25), 0 8px 28px rgba(1, 170, 35, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #01AA23;
+  box-shadow: 0 0 0 1px rgba(1, 147, 255, 0.3), 0 4px 20px rgba(1, 170, 35, 0.2), 0 4px 24px rgba(1, 147, 255, 0.15);
   transform: scale(1.02);
 }
 
@@ -145,7 +145,7 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: linear-gradient(135deg, rgba(1, 170, 35, 0.2) 0%, rgba(1, 147, 255, 0.2) 100%);
+  background: linear-gradient(90deg, rgba(1, 170, 35, 0.18) 0%, rgba(1, 147, 255, 0.18) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,8 +157,9 @@
 }
 
 .offering_stepper_card_active .offering_stepper_card_icon {
-  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
+  background: linear-gradient(90deg, #01AA23 0%, #0193FF 100%);
   color: white;
+  box-shadow: 0 2px 10px rgba(1, 170, 35, 0.35);
 }
 
 .offering_stepper_card_heading {

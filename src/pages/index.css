@@ -400,92 +400,93 @@ body {
 }
 
 /* our offering css */
-.circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    /* border: 4px solid rgba(0, 147, 255, 1); */
-    background: rgba(35, 135, 192, 0.3);
+.offering_marquee_shell {
+    padding: 16px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(1, 147, 255, 0.14) 0%, rgba(1, 170, 35, 0.14) 100%);
+    border: 1px solid rgba(141, 176, 255, 0.36);
+    box-shadow: 0 10px 26px rgba(20, 45, 95, 0.09);
     overflow: hidden;
-    display: flex;
+}
+
+.offering_marquee_row {
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 10px;
+}
+
+.offering_marquee_row:last-child {
+    margin-bottom: 0;
+}
+
+.offering_marquee_track {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-
+    gap: 12px;
+    min-width: max-content;
+    animation: offeringSlide 26s linear infinite;
 }
 
-.inner-circle img {
-    width: 60%;
-    height: 36px;
-    object-fit: center !important;
-    display: block;
-    margin-left: 12px;
-    margin-top: 10px;
+.offering_marquee_row.reverse .offering_marquee_track {
+    animation-direction: reverse;
 }
 
-.inner-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(0, 147, 255, 1);
-
-}
-
-.text_offering_left h1 {
-    font-size: 24px;
-    color: rgba(36, 37, 39, 1);
+.offering_marquee_chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(145, 159, 255, 0.35);
+    background: linear-gradient(135deg, #ffffff 0%, #f1f6ff 100%);
+    color: #2a3550;
+    border-radius: 999px;
+    padding: 10px 18px;
+    font-size: 15px;
     font-weight: 700;
-
+    box-shadow: 0 6px 16px rgba(34, 85, 165, 0.12);
 }
 
-.our_offering_parent_first {
-    display: flex;
-    align-items: flex-start;
-    gap: 25px;
-    margin-bottom: 20px;
+.offering_marquee_chip svg {
+    color: #0e92f8;
 }
 
+@keyframes offeringSlide {
+    from {
+        transform: translateX(0);
+    }
 
-/* .text_offering_left {
-    size: 19px;
-} */
-
-.socialmedia_contentbox {
-    background: linear-gradient(97.02deg, #01AA23 0%, #0193FF 100%);
-    /* height: 424px; */
-    border-radius: 20px;
-    padding: 40px;
+    to {
+        transform: translateX(-50%);
+    }
 }
 
-.socialmedia_contentbox img {
-    height: 150px;
-    width: 100%;
+.offering_feature_grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
 }
 
-.content_card1 {
-    color: #fff;
-    width: 335px;
+.offering_feature_card {
+    background: linear-gradient(120deg, rgba(0, 173, 71, 0.92) 0%, rgba(0, 150, 255, 0.95) 100%);
+    border-radius: 18px;
+    padding: 24px;
+    color: #ffffff;
+    min-height: 190px;
+    box-shadow: 0 14px 30px rgba(0, 115, 224, 0.18);
 }
 
-.card_main1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 25px;
-    min-height: 175px;
+.offering_feature_card h3 {
+    font-size: 34px;
+    font-family: "Barlow Condensed", sans-serif;
+    line-height: 1.05;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.card_main2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-}
-
-.content_card2 {
-    color: #fff;
-    width: 335px;
+.offering_feature_card p {
+    margin-bottom: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.96);
 }
 
 .banner4 {
@@ -932,6 +933,23 @@ ul.custom-square-list li::before {
         font-size: 28px;
     }
 
+    .offering_marquee_chip {
+        font-size: 13px;
+        padding: 8px 14px;
+    }
+
+    .offering_feature_grid {
+        grid-template-columns: 1fr;
+    }
+
+    .offering_feature_card {
+        min-height: auto;
+    }
+
+    .offering_feature_card h3 {
+        font-size: 30px;
+    }
+
     .foot_box {
         padding: 30px 0;
     }
@@ -988,6 +1006,29 @@ ul.custom-square-list li::before {
     .video_journey_step {
         font-size: 10px;
         padding: 6px 8px;
+    }
+
+    .offering_marquee_shell {
+        padding: 12px;
+        border-radius: 16px;
+    }
+
+    .offering_marquee_chip {
+        font-size: 12px;
+        padding: 7px 12px;
+    }
+
+    .offering_feature_card {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .offering_feature_card h3 {
+        font-size: 26px;
+    }
+
+    .offering_feature_card p {
+        font-size: 14px;
     }
 
     .about_img img {

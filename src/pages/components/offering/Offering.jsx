@@ -8,8 +8,12 @@ import {
   FaMapMarkerAlt,
   FaWhatsapp,
   FaGlobe,
+  FaThLarge,
+  FaPaperPlane,
+  FaCodeBranch,
+  FaWallet,
+  FaCheckCircle,
 } from "react-icons/fa";
-import { LayoutDashboard, Send, GitMerge, Wallet, CheckCircle } from "lucide-react";
 import data from "../../data.json";
 import "./Offering.css";
 
@@ -22,11 +26,11 @@ const offeringIconMap = {
 };
 
 const PROCESS_STEPS = [
-  { id: "portal", heading: "Portal", icon: LayoutDashboard, time: "05:40 pm" },
-  { id: "campaign", heading: "Campaign Request", icon: Send, time: "05:41 pm" },
-  { id: "matching", heading: "Smart Matching", icon: GitMerge, time: "05:42 pm" },
-  { id: "revenue", heading: "Revenue Allocation", icon: Wallet, time: "05:43 pm" },
-  { id: "live", heading: "Live", icon: CheckCircle, time: "05:44 pm" },
+  { id: "portal", heading: "Portal", icon: FaThLarge, time: "05:40 pm" },
+  { id: "campaign", heading: "Campaign Request", icon: FaPaperPlane, time: "05:41 pm" },
+  { id: "matching", heading: "Smart Matching", icon: FaCodeBranch, time: "05:42 pm" },
+  { id: "revenue", heading: "Revenue Allocation", icon: FaWallet, time: "05:43 pm" },
+  { id: "live", heading: "Live", icon: FaCheckCircle, time: "05:44 pm" },
 ];
 
 const Offering = () => {
@@ -89,7 +93,7 @@ const Offering = () => {
                     onKeyDown={(e) => e.key === "Enter" && setActiveStep(index)}
                   >
                     <div className="offering_stepper_card_icon">
-                      <Icon size={20} strokeWidth={2} />
+                      <Icon />
                     </div>
                     <h3 className="offering_stepper_card_heading">{step.heading}</h3>
                     <span className="offering_stepper_card_time">{step.time}</span>

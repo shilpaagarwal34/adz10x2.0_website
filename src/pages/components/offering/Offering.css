@@ -136,6 +136,7 @@
   color: #01AA23;
   margin-bottom: 0.75rem;
   flex-shrink: 0;
+  font-size: 1.15rem;
 }
 
 .offering_stepper_card_active .offering_stepper_card_icon {

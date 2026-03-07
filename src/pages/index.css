@@ -389,7 +389,14 @@ body {
 .about_content .about_img {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
+}
+
+.about_content .about_img img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
 }
 
 /* our offering css */
@@ -984,7 +991,10 @@ ul.custom-square-list li::before {
     }
 
     .about_img img {
-        height: 250px;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
     }
 
     .hero_banner .slide-content {

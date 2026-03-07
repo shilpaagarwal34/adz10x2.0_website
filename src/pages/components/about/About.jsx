@@ -1,11 +1,10 @@
 import React from 'react'
-import about_section_img from "../../../assets/about_content_img.svg"
 import data from "../../data.json"
 
 
 const About = () => {
 
-    const { title, description_one, description_two } = data.about_us
+    const { title, description_one, description_two, image } = data.about_us
 
     return (
         <>
@@ -22,8 +21,8 @@ const About = () => {
                             <p className="paragraph2">{description_two}</p>
                         </div>
 
-                        <div className="about_img col-lg-7">
-                            <img src={about_section_img} alt="about content img" />
+                        <div className="about_img col-lg-7 mt-4 mt-lg-0">
+                            <img src={image || "/about-us-flow.png"} alt="about us flow" />
                         </div>
 
                     </div>

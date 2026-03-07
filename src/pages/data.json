@@ -44,7 +44,8 @@
   "about_us": {
     "title": "About Us",
     "description_one": "<p class=\"paragraph\">At <strong>Adz10x.com</strong> we're redefining how residential societies generate value from their digital presence. Our goal is simple yet powerful - <strong>to empower gated communities to monetize their visibility by connecting them with top brands for targeted, non-intrusive advertising opportunities.</strong></p>",
-    "description_two": "We believe societies deserve more than just maintenance collections - they deserve a share in the digital economy. By facilitating verified ad campaigns within residential ecosystems, we are creating a new income stream for societies while offering brands authentic, hyperlocal visibility."
+    "description_two": "We believe societies deserve more than just maintenance collections - they deserve a share in the digital economy. By facilitating verified ad campaigns within residential ecosystems, we are creating a new income stream for societies while offering brands authentic, hyperlocal visibility.",
+    "image": "/about-us-flow.png"
   },
   "offering": {
     "title": "Our Offerings",

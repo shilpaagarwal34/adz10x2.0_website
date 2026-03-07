@@ -17,8 +17,6 @@ const Index = () => {
             <Banner_slider />
 
             <Suspense fallback={null}>
-                <About />
-
                 <Offering />
 
                 <Inventory />
@@ -32,6 +30,8 @@ const Index = () => {
                 <Accordian />
 
                 <Company_logo />
+
+                <About />
             </Suspense>
 
         </>

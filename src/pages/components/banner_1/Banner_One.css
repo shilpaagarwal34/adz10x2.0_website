@@ -1,22 +1,11 @@
-/* Why Your Society - Full content, attractive two-column layout */
+/* Why Your Society - Full section with big circle */
 .banner4_society {
   background: linear-gradient(
     180deg,
     rgba(21, 176, 54, 0.05) 0%,
-    rgba(255, 255, 255, 1) 30%,
+    rgba(255, 255, 255, 1) 25%,
     rgba(9, 74, 23, 0.05) 100%
   );
-}
-
-.banner4_society_layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: start;
-}
-
-.banner4_society_content {
-  max-width: 560px;
 }
 
 .banner4_society_title {
@@ -25,10 +14,111 @@
   margin-bottom: 2rem;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  text-align: center;
+}
+
+/* Full-width area for the circle - uses whole society section */
+.banner4_society_circle_zone {
+  width: 100%;
+  min-height: min(480px, 85vmin);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  margin: 0 0 2rem 0;
+}
+
+/* Rotating circle container + visible ring */
+.banner4_society_circle_rotate {
+  position: relative;
+  flex-shrink: 0;
+  animation: banner4_circle_rotate 30s linear infinite;
+}
+
+.banner4_society_circle_ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.banner4_society_circle_ring circle {
+  filter: drop-shadow(0 2px 8px rgba(1, 170, 35, 0.2));
+}
+
+@keyframes banner4_circle_rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.banner4_society_circle_box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -32px;
+  width: 200px;
+  cursor: pointer;
+  transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius)));
+}
+
+.banner4_society_circle_box_inner {
+  animation: banner4_circle_counter_rotate 30s linear infinite;
+  background: linear-gradient(97.02deg, #01AA23 0%, #0193FF 100%);
+  color: white;
+  padding: 0.65rem 1rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(1, 170, 35, 0.35);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.banner4_society_circle_box_inner:hover {
+  box-shadow: 0 6px 20px rgba(1, 170, 35, 0.45);
+}
+
+@keyframes banner4_circle_counter_rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.banner4_society_circle_heading {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.25;
+  font-family: "Barlow Condensed", sans-serif;
+  text-align: center;
+}
+
+.banner4_society_circle_desc {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  line-height: 1.35;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.35s ease;
+  margin-top: 0;
+  text-align: center;
+}
+
+.banner4_society_circle_box:hover .banner4_society_circle_desc {
+  opacity: 1;
+  max-height: 90px;
+  margin-top: 0.4rem;
+}
+
+.banner4_society_circle_box:hover .banner4_society_circle_box_inner {
+  padding: 0.8rem 1rem;
 }
 
 .banner4_society_cta {
-  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .banner4_society_cta .btn {
@@ -49,151 +139,25 @@
   color: white;
 }
 
-/* Right panel - visual with gradient corners */
-.banner4_society_visual {
-  position: relative;
-  min-height: 420px;
-  border-radius: 24px;
-  overflow: hidden;
-  background: linear-gradient(
-    160deg,
-    rgba(1, 170, 35, 0.08) 0%,
-    rgba(1, 147, 255, 0.08) 50%,
-    rgba(255, 255, 255, 0.95) 100%
-  );
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-}
-
-.banner4_society_visual_inner {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(1, 170, 35, 0.06) 0%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(1, 147, 255, 0.06) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Full rotating circle with 5 text boxes */
-.banner4_society_circle_rotate {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  animation: banner4_circle_rotate 30s linear infinite;
-}
-
-@keyframes banner4_circle_rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.banner4_society_circle_box {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -90px;
-  margin-top: -28px;
-  width: 180px;
-  cursor: pointer;
-}
-
-.banner4_society_circle_box_inner {
-  animation: banner4_circle_counter_rotate 30s linear infinite;
-  background: linear-gradient(97.02deg, #01AA23 0%, #0193FF 100%);
-  color: white;
-  padding: 0.6rem 0.9rem;
-  border-radius: 9999px;
-  box-shadow: 0 4px 14px rgba(1, 170, 35, 0.35);
-  transition: box-shadow 0.25s ease, transform 0.2s ease;
-  position: relative;
-}
-
-.banner4_society_circle_box_inner:hover {
-  box-shadow: 0 6px 20px rgba(1, 170, 35, 0.45);
-}
-
-@keyframes banner4_circle_counter_rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
-}
-
-.banner4_society_circle_heading {
-  display: block;
-  font-size: 0.8rem;
-  font-weight: 700;
-  line-height: 1.25;
-  font-family: "Barlow Condensed", sans-serif;
-  text-align: center;
-}
-
-.banner4_society_circle_desc {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 500;
-  line-height: 1.35;
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-  transition: opacity 0.3s ease, max-height 0.35s ease;
-  margin-top: 0;
-  text-align: center;
-}
-
-.banner4_society_circle_box:hover .banner4_society_circle_desc {
-  opacity: 1;
-  max-height: 80px;
-  margin-top: 0.35rem;
-}
-
-.banner4_society_circle_box:hover .banner4_society_circle_box_inner {
-  padding: 0.75rem 0.9rem;
-}
-
-.banner4_society_corner {
-  position: absolute;
-  z-index: 2;
-  width: 120px;
-  height: auto;
-}
-
-.banner4_society_corner_tl {
-  top: 0;
-  left: 0;
-}
-
-.banner4_society_corner_br {
-  bottom: 0;
-  right: 0;
-}
-
-@media (max-width: 992px) {
-  .banner4_society_layout {
-    grid-template-columns: 1fr;
+@media (max-width: 768px) {
+  .banner4_society_circle_zone {
+    min-height: min(400px, 90vmin);
+    padding: 1.5rem 0.5rem;
   }
 
-  .banner4_society_visual {
-    min-height: 280px;
-    order: -1;
-  }
-}
-
-@media (max-width: 576px) {
   .banner4_society_circle_rotate {
-    width: 240px;
-    height: 240px;
+    width: min(320px, 90vw) !important;
+    height: min(320px, 90vw) !important;
+  }
+
+  .banner4_society_circle_ring {
+    width: 100%;
+    height: 100%;
   }
 
   .banner4_society_circle_box {
-    margin-left: -75px;
-    width: 150px;
-  }
-
-  .banner4_society_circle_heading {
-    font-size: 0.75rem;
+    margin-left: -85px;
+    width: 170px;
+    --radius: 140px;
   }
 }

@@ -1,0 +1,275 @@
+/* Offering header - Gupshup style */
+.offering_container {
+  position: relative;
+}
+
+.offering_header {
+  text-align: left;
+  margin-bottom: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+.offering_accent_bar {
+  width: 4px;
+  height: 48px;
+  background: linear-gradient(180deg, #01AA23 0%, #0193FF 100%);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+}
+
+.offering_title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.offering_subtitle {
+  font-size: 1.05rem;
+  color: #64748b;
+  max-width: 620px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Flow diagram - Gupshup style */
+.offering_flow_diagram {
+  background: linear-gradient(135deg, rgba(1, 170, 35, 0.08) 0%, rgba(1, 147, 255, 0.1) 100%);
+  border-radius: 24px;
+  padding: 2.5rem 1.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 24px rgba(1, 147, 255, 0.1);
+  border: 1px solid rgba(1, 170, 35, 0.15);
+}
+
+.offering_flow_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.offering_flow_node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.offering_flow_icon_circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.offering_flow_start {
+  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
+  box-shadow: 0 8px 24px rgba(1, 170, 35, 0.35);
+}
+
+.offering_flow_end {
+  background: linear-gradient(135deg, #0193FF 0%, #0d6efd 100%);
+  box-shadow: 0 8px 24px rgba(1, 147, 255, 0.35);
+}
+
+.offering_code_icon {
+  font-family: "SF Mono", "Monaco", monospace;
+  font-weight: 700;
+}
+
+.offering_node_label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #01AA23;
+}
+
+.offering_flow_node:last-child .offering_node_label {
+  color: #0193FF;
+}
+
+.offering_flow_mid {
+  flex: 1;
+  min-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.offering_flow_line {
+  height: 2px;
+  flex: 1;
+  background: linear-gradient(90deg, rgba(1, 170, 35, 0.5) 0%, rgba(1, 147, 255, 0.5) 100%);
+  border-radius: 2px;
+}
+
+.offering_flow_line_right {
+  background: linear-gradient(90deg, rgba(1, 147, 255, 0.5) 0%, rgba(1, 170, 35, 0.5) 100%);
+}
+
+/* Chat bubbles */
+.offering_chat_bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.offering_bubble {
+  padding: 0.6rem 1rem;
+  border-radius: 12px;
+  max-width: 260px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.offering_bubble_query {
+  background: white;
+  color: #334155;
+  border: 1px solid #e2e8f0;
+}
+
+.offering_bubble_response {
+  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
+  color: white;
+  margin-left: 1rem;
+}
+
+.offering_bubble_text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  flex: 1;
+}
+
+.offering_bubble_time {
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.offering_bubble_check {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Offering stack icons (3 in flow) */
+.offering_stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.offering_stack_icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #01AA23;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.offering_stack_icon:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(1, 170, 35, 0.25);
+}
+
+/* Offering cards grid - Gupshup style (white cards + icon) */
+.offering_cards_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.offering_card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  border: 1px solid #f1f5f9;
+  transition: transform 0.25s, box-shadow 0.25s;
+  text-align: left;
+}
+
+.offering_card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(1, 170, 35, 0.12);
+  border-color: rgba(1, 170, 35, 0.2);
+}
+
+.offering_card_icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(1, 170, 35, 0.12) 0%, rgba(1, 147, 255, 0.12) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #01AA23;
+  margin-bottom: 1.25rem;
+}
+
+.offering_card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e1b4b;
+  margin-bottom: 0.5rem;
+  font-family: "Barlow Condensed", sans-serif;
+  line-height: 1.2;
+}
+
+.offering_card p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .offering_flow_row {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .offering_flow_mid .offering_flow_line {
+    width: 2px;
+    height: 40px;
+    background: linear-gradient(180deg, rgba(1, 170, 35, 0.5) 0%, rgba(1, 147, 255, 0.5) 100%);
+  }
+
+  .offering_chat_bubbles {
+    position: static;
+    transform: none;
+    width: 100%;
+    order: 2;
+  }
+
+  .offering_stack {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .offering_cards_grid {
+    grid-template-columns: 1fr;
+  }
+}

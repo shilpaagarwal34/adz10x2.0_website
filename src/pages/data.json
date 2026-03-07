@@ -50,24 +50,33 @@
   "offering": {
     "title": "Our Offerings",
     "sub_heading": "Unlock high-impact marketing opportunities through hyper-targeted campaigns powered by WhatsApp group.",
+    "flow_messages": [
+      { "type": "query", "text": "New campaign request for our society", "time": "05:41 pm" },
+      { "type": "response", "text": "Campaign approved and live!", "time": "05:42 pm" }
+    ],
     "offering_content": [
       {
+        "icon": "leadgen",
         "heading": "Lead Generation Campaigns",
         "description": "Capture high-intent leads by targeting the right audience and engaging them with compelling CTAs that drive action."
       },
       {
+        "icon": "branding",
         "heading": "Branding Campaigns",
         "description": "Amplify your brand visibility and credibility through consistent, localized messaging. Perfect for product launches awareness drives, and reputation building."
       },
       {
+        "icon": "surveys",
         "heading": "Surveys",
         "description": "Gain deep insights into customer preferences and behaviour with short, high-response surveys—ideal for product feedback, market research, and sentiment analysis."
       },
       {
+        "icon": "hyperlocal",
         "heading": "Hyperlocal Promotions",
         "description": "Reach residents in gated societies, townships, and local clusters with tailored offers and location-specific campaigns that resonate."
       },
       {
+        "icon": "whatsapp",
         "heading": "WhatsApp-First Engagements",
         "description": "From announcements to click-to-chat CTAs, our campaigns are built for high engagement on WhatsApp—where your customers already are."
       }

@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import data from "../../data.json";
 import GetStartedBtn from "../GetStartedBtn";
 import "./Banner_One.css";
 
-const BOX_ANGLES = [0, 72, 144, 216, 288];
-const CIRCLE_SIZE = 420;
-const RADIUS = 198;
+const ROTATION_DURATION_MS = 30000;
+const BOX_ANGLES = [180, 225, 270, 315, 360];
 
 const Banner_One = () => {
   const { title, features } = data.banner_1;
+  const [rotation, setRotation] = useState(0);
+
+  useEffect(() => {
+    const start = Date.now();
+    let raf = 0;
+    const tick = () => {
+      const elapsed = Date.now() - start;
+      const r = (elapsed / ROTATION_DURATION_MS) * 360 % 360;
+      setRotation(r);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
 
   return (
     <section className="banner4 banner4_society section_padding" id="society">
@@ -16,43 +29,47 @@ const Banner_One = () => {
         <h1 className="banner4_society_title gradient-text">{title}</h1>
       </div>
 
-      <div className="banner4_society_circle_zone">
-        <div
-          className="banner4_society_circle_rotate"
-          style={{ width: CIRCLE_SIZE, height: CIRCLE_SIZE }}
+      <div className="banner4_society_semicircle_zone">
+        <svg
+          className="banner4_society_semicircle_svg"
+          viewBox="0 0 800 400"
+          preserveAspectRatio="xMidYMax meet"
+          aria-hidden
         >
-          <svg
-            className="banner4_society_circle_ring"
-            viewBox={`0 0 ${CIRCLE_SIZE} ${CIRCLE_SIZE}`}
-            aria-hidden
-          >
-            <defs>
-              <linearGradient id="banner4CircleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="#01AA23" />
-                <stop offset="100%" stopColor="#0193FF" />
-              </linearGradient>
-            </defs>
-            <circle
-              cx={CIRCLE_SIZE / 2}
-              cy={CIRCLE_SIZE / 2}
-              r={CIRCLE_SIZE / 2 - 4}
-              fill="none"
-              stroke="url(#banner4CircleGrad)"
-              strokeWidth="3"
-            />
-          </svg>
+          <defs>
+            <linearGradient id="banner4ArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#01AA23" />
+              <stop offset="100%" stopColor="#0193FF" />
+            </linearGradient>
+          </defs>
+          <path
+            className="banner4_society_arc_path"
+            d="M 0 400 A 400 400 0 0 1 800 400"
+            fill="none"
+            stroke="url(#banner4ArcGrad)"
+            strokeWidth="4"
+            strokeLinecap="round"
+          />
+        </svg>
+        <div
+          className="banner4_society_semicircle_rotate"
+          style={{ transform: `rotate(${rotation}deg)` }}
+        >
           {features.slice(0, 5).map((item, index) => {
             const angle = BOX_ANGLES[index];
+            const counterRotate = -(rotation + angle);
             return (
               <div
                 key={index}
-                className="banner4_society_circle_box"
+                className="banner4_society_semicircle_box"
                 style={{
                   "--angle": `${angle}deg`,
-                  "--radius": `${RADIUS}px`,
                 }}
               >
-                <div className="banner4_society_circle_box_inner">
+                <div
+                  className="banner4_society_semicircle_box_inner"
+                  style={{ transform: `rotate(${counterRotate}deg)` }}
+                >
                   <span className="banner4_society_circle_heading">
                     {item.heading}
                   </span>

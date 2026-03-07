@@ -1,9 +1,9 @@
-/* Why Your Society - Full section with big circle */
+/* Why Your Society - Semi-circle at bottom, full width */
 .banner4_society {
   background: linear-gradient(
     180deg,
     rgba(21, 176, 54, 0.05) 0%,
-    rgba(255, 255, 255, 1) 25%,
+    rgba(255, 255, 255, 1) 20%,
     rgba(9, 74, 23, 0.05) 100%
   );
 }
@@ -17,70 +17,65 @@
   text-align: center;
 }
 
-/* Full-width area for the circle - uses whole society section */
-.banner4_society_circle_zone {
-  width: 100%;
-  min-height: min(480px, 85vmin);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem 1rem;
-  margin: 0 0 2rem 0;
-}
-
-/* Rotating circle container + visible ring */
-.banner4_society_circle_rotate {
+/* Full-width semi-circle zone - arc at bottom, covers entire area */
+.banner4_society_semicircle_zone {
   position: relative;
-  flex-shrink: 0;
-  animation: banner4_circle_rotate 30s linear infinite;
+  width: 100%;
+  padding-bottom: 50%;
+  min-height: 320px;
+  margin: 0 0 2rem 0;
+  overflow: visible;
 }
 
-.banner4_society_circle_ring {
+.banner4_society_semicircle_svg {
   position: absolute;
-  inset: 0;
+  left: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
 }
 
-.banner4_society_circle_ring circle {
+.banner4_society_arc_path {
   filter: drop-shadow(0 2px 8px rgba(1, 170, 35, 0.2));
 }
 
-@keyframes banner4_circle_rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Rotating wrapper - origin at bottom center so arc rotates in place */
+.banner4_society_semicircle_rotate {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: 50% 100%;
+  transition: transform 0.05s linear;
 }
 
-.banner4_society_circle_box {
+.banner4_society_semicircle_box {
   position: absolute;
   left: 50%;
-  top: 50%;
+  bottom: 0;
   margin-left: -100px;
-  margin-top: -32px;
+  margin-bottom: 0;
   width: 200px;
   cursor: pointer;
-  transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius)));
+  transform-origin: 50% 100%;
+  transform: rotate(var(--angle)) translateY(-50%);
 }
 
-.banner4_society_circle_box_inner {
-  animation: banner4_circle_counter_rotate 30s linear infinite;
+.banner4_society_semicircle_box_inner {
   background: linear-gradient(97.02deg, #01AA23 0%, #0193FF 100%);
   color: white;
   padding: 0.65rem 1rem;
   border-radius: 9999px;
   box-shadow: 0 4px 14px rgba(1, 170, 35, 0.35);
-  transition: box-shadow 0.25s ease, transform 0.2s ease;
+  transition: box-shadow 0.25s ease;
   position: relative;
+  white-space: nowrap;
 }
 
-.banner4_society_circle_box_inner:hover {
+.banner4_society_semicircle_box_inner:hover {
   box-shadow: 0 6px 20px rgba(1, 170, 35, 0.45);
-}
-
-@keyframes banner4_circle_counter_rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(-360deg); }
 }
 
 .banner4_society_circle_heading {
@@ -90,6 +85,7 @@
   line-height: 1.25;
   font-family: "Barlow Condensed", sans-serif;
   text-align: center;
+  white-space: normal;
 }
 
 .banner4_society_circle_desc {
@@ -103,15 +99,16 @@
   transition: opacity 0.3s ease, max-height 0.35s ease;
   margin-top: 0;
   text-align: center;
+  white-space: normal;
 }
 
-.banner4_society_circle_box:hover .banner4_society_circle_desc {
+.banner4_society_semicircle_box:hover .banner4_society_circle_desc {
   opacity: 1;
   max-height: 90px;
   margin-top: 0.4rem;
 }
 
-.banner4_society_circle_box:hover .banner4_society_circle_box_inner {
+.banner4_society_semicircle_box:hover .banner4_society_semicircle_box_inner {
   padding: 0.8rem 1rem;
 }
 
@@ -140,24 +137,17 @@
 }
 
 @media (max-width: 768px) {
-  .banner4_society_circle_zone {
-    min-height: min(400px, 90vmin);
-    padding: 1.5rem 0.5rem;
+  .banner4_society_semicircle_zone {
+    padding-bottom: 45%;
+    min-height: 260px;
   }
 
-  .banner4_society_circle_rotate {
-    width: min(320px, 90vw) !important;
-    height: min(320px, 90vw) !important;
+  .banner4_society_semicircle_box {
+    margin-left: -80px;
+    width: 160px;
   }
 
-  .banner4_society_circle_ring {
-    width: 100%;
-    height: 100%;
-  }
-
-  .banner4_society_circle_box {
-    margin-left: -85px;
-    width: 170px;
-    --radius: 140px;
+  .banner4_society_circle_heading {
+    font-size: 0.75rem;
   }
 }

@@ -22,13 +22,18 @@ const offeringIconMap = {
 };
 
 const Offering = () => {
-  const { title, sub_heading, offering_content, flow_messages } = data.offering;
+  const { title, sub_heading, offering_content, flow_messages, flow_right_messages } = data.offering;
   const offeringLabels = offering_content.map((item) => item.heading);
   const marqueeRow = [...offeringLabels, ...offeringLabels];
 
   const messages = flow_messages || [
     { type: "query", text: "New campaign request for our society", time: "05:41 pm" },
     { type: "response", text: "Campaign approved and live!", time: "05:42 pm" },
+  ];
+
+  const rightMessages = flow_right_messages || [
+    { text: "Society earning in multiple folds!", time: "05:43 pm" },
+    { text: "Extra income without raising maintenance.", time: "05:44 pm" },
   ];
 
   return (
@@ -104,8 +109,16 @@ const Offering = () => {
                 })}
               </div>
 
-              <div className="offering_flow_mid">
+              <div className="offering_flow_mid offering_flow_mid_right">
                 <div className="offering_flow_line offering_flow_line_right" />
+                <div className="offering_right_bubbles">
+                  {rightMessages.map((msg, i) => (
+                    <div key={i} className="offering_bubble offering_bubble_earnings">
+                      <span className="offering_bubble_text">{msg.text}</span>
+                      <span className="offering_bubble_time">{msg.time}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="offering_flow_node">

@@ -32,23 +32,23 @@
   margin: 0;
 }
 
-/* Flow diagram - Gupshup style */
+/* Flow diagram - bigger, Gupshup style */
 .offering_flow_diagram {
-  background: linear-gradient(135deg, rgba(1, 170, 35, 0.08) 0%, rgba(1, 147, 255, 0.1) 100%);
-  border-radius: 24px;
-  padding: 2.5rem 1.5rem;
+  background: linear-gradient(135deg, rgba(1, 170, 35, 0.1) 0%, rgba(1, 147, 255, 0.12) 100%);
+  border-radius: 28px;
+  padding: 3rem 2rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 4px 24px rgba(1, 147, 255, 0.1);
-  border: 1px solid rgba(1, 170, 35, 0.15);
+  box-shadow: 0 6px 32px rgba(1, 147, 255, 0.12);
+  border: 1px solid rgba(1, 170, 35, 0.2);
 }
 
 .offering_flow_row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
-  max-width: 920px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -56,19 +56,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   flex-shrink: 0;
 }
 
 .offering_flow_icon_circle {
-  width: 64px;
-  height: 64px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.75rem;
 }
 
 .offering_flow_start {
@@ -87,7 +87,7 @@
 }
 
 .offering_node_label {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: #01AA23;
 }
@@ -120,18 +120,34 @@
 .offering_chat_bubbles {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.offering_right_bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  align-items: flex-end;
+}
+
+.offering_right_bubbles .offering_bubble {
+  max-width: 280px;
+  text-align: right;
+}
+
 .offering_bubble {
-  padding: 0.6rem 1rem;
-  border-radius: 12px;
-  max-width: 260px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 0.75rem 1.15rem;
+  border-radius: 14px;
+  max-width: 280px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -139,19 +155,40 @@
 }
 
 .offering_bubble_query {
-  background: white;
-  color: #334155;
-  border: 1px solid #e2e8f0;
+  background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%);
+  color: white;
+  border: none;
+  animation: offeringBubbleFade 0.6s ease-out;
 }
 
 .offering_bubble_response {
   background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
   color: white;
   margin-left: 1rem;
+  animation: offeringBubbleFade 0.6s ease-out 0.15s both;
+}
+
+.offering_bubble_earnings {
+  background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
+  color: white;
+  margin-right: 0;
+  margin-left: auto;
+  animation: offeringBubbleFade 0.6s ease-out 0.3s both;
+}
+
+@keyframes offeringBubbleFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .offering_bubble_text {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
   flex: 1;
 }
@@ -175,14 +212,14 @@
 }
 
 .offering_stack_icon {
-  width: 44px;
-  height: 44px;
+  width: 50px;
+  height: 50px;
   border-radius: 12px;
   background: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.25rem;
   color: #01AA23;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -193,46 +230,64 @@
   box-shadow: 0 8px 20px rgba(1, 170, 35, 0.25);
 }
 
-/* Offering cards grid - Gupshup style (white cards + icon) */
+/* Offering cards grid - brighter, eye-catching, animated */
 .offering_cards_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
 
 .offering_card {
-  background: white;
-  border-radius: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 50%, #ecfeff 100%);
+  border-radius: 22px;
   padding: 2rem;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-  border: 1px solid #f1f5f9;
-  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 6px 28px rgba(1, 170, 35, 0.12);
+  border: 1px solid rgba(1, 170, 35, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   text-align: left;
+  animation: offeringCardSlide 0.6s ease-out both;
 }
 
+.offering_card:nth-child(1) { animation-delay: 0.1s; }
+.offering_card:nth-child(2) { animation-delay: 0.2s; }
+.offering_card:nth-child(3) { animation-delay: 0.3s; }
+.offering_card:nth-child(4) { animation-delay: 0.4s; }
+
 .offering_card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(1, 170, 35, 0.12);
-  border-color: rgba(1, 170, 35, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(1, 170, 35, 0.2);
+  border-color: rgba(1, 170, 35, 0.4);
+}
+
+@keyframes offeringCardSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .offering_card_icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(1, 170, 35, 0.12) 0%, rgba(1, 147, 255, 0.12) 100%);
+  width: 60px;
+  height: 60px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  color: #01AA23;
+  font-size: 1.6rem;
+  color: white;
   margin-bottom: 1.25rem;
+  box-shadow: 0 4px 16px rgba(1, 170, 35, 0.3);
 }
 
 .offering_card h3 {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #1e1b4b;
+  color: #0f172a;
   margin-bottom: 0.5rem;
   font-family: "Barlow Condensed", sans-serif;
   line-height: 1.2;
@@ -240,7 +295,7 @@
 
 .offering_card p {
   font-size: 0.95rem;
-  color: #64748b;
+  color: #475569;
   line-height: 1.5;
   margin: 0;
 }
@@ -271,5 +326,17 @@
 
   .offering_cards_grid {
     grid-template-columns: 1fr;
+  }
+
+  .offering_right_bubbles {
+    position: static;
+    transform: none;
+    align-items: stretch;
+  }
+
+  .offering_right_bubbles .offering_bubble {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
   }
 }

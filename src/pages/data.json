@@ -54,6 +54,10 @@
       { "type": "query", "text": "New campaign request for our society", "time": "05:41 pm" },
       { "type": "response", "text": "Campaign approved and live!", "time": "05:42 pm" }
     ],
+    "flow_right_messages": [
+      { "text": "Society earning in multiple folds!", "time": "05:43 pm" },
+      { "text": "Extra income without raising maintenance.", "time": "05:44 pm" }
+    ],
     "offering_content": [
       {
         "icon": "leadgen",
@@ -74,11 +78,6 @@
         "icon": "hyperlocal",
         "heading": "Hyperlocal Promotions",
         "description": "Reach residents in gated societies, townships, and local clusters with tailored offers and location-specific campaigns that resonate."
-      },
-      {
-        "icon": "whatsapp",
-        "heading": "WhatsApp-First Engagements",
-        "description": "From announcements to click-to-chat CTAs, our campaigns are built for high engagement on WhatsApp—where your customers already are."
       }
     ]
   },

@@ -27,11 +27,11 @@ const Index = () => {
 
                 <Banner_Two />
 
+                <About />
+
                 <Accordian />
 
                 <Company_logo />
-
-                <About />
             </Suspense>
 
         </>

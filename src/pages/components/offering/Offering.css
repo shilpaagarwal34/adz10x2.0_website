@@ -32,301 +32,132 @@
   margin: 0;
 }
 
-/* Flow diagram - Gupshup style with curved lines */
-.offering_flow_diagram {
+/* Process stepper - horizontal 5-step workflow */
+.offering_stepper_wrap {
   position: relative;
-  background: linear-gradient(135deg, rgba(1, 170, 35, 0.08) 0%, rgba(1, 147, 255, 0.12) 100%);
-  border-radius: 28px;
-  padding: 3rem 2rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 8px 40px rgba(1, 147, 255, 0.15), 0 0 0 1px rgba(1, 170, 35, 0.15);
-  border: 1px solid rgba(1, 170, 35, 0.25);
-  overflow: hidden;
+  padding: 1rem 0;
 }
 
-.offering_flow_svg_wrap {
+/* Single glowing gradient line (Blue to Green) behind cards */
+.offering_stepper_line {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  opacity: 0.9;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  margin-top: -2px;
+  background: linear-gradient(90deg, #0193FF 0%, #01AA23 100%);
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(1, 147, 255, 0.4), 0 0 40px rgba(1, 170, 35, 0.2);
+  z-index: 0;
 }
 
-.offering_flow_svg {
-  width: 100%;
-  height: 100%;
-  min-height: 180px;
-}
-
-.offering_flow_path {
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  animation: offeringPathDash 20s linear infinite;
-}
-
-.offering_flow_path_main {
-  stroke-dasharray: 12 8;
-}
-
-.offering_flow_path_top,
-.offering_flow_path_bot {
-  stroke-dasharray: 6 8;
-}
-
-.offering_flow_dot {
-  animation: offeringDotPulse 2s ease-in-out infinite;
-}
-
-.offering_flow_dot:nth-child(5) { animation-delay: 0.2s; }
-.offering_flow_dot:nth-child(6) { animation-delay: 0.4s; }
-.offering_flow_dot:nth-child(7) { animation-delay: 0.6s; }
-.offering_flow_dot:nth-child(8) { animation-delay: 0.8s; }
-.offering_flow_dot:nth-child(9) { animation-delay: 1s; }
-
-@keyframes offeringPathDash {
-  to { stroke-dashoffset: -200; }
-}
-
-@keyframes offeringDotPulse {
-  0%, 100% { opacity: 0.7; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.2); }
-}
-
-.offering_flow_row {
+.offering_stepper_track {
   position: relative;
   display: flex;
-  align-items: center;
+  flex-wrap: nowrap;
+  align-items: stretch;
   justify-content: space-between;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 0 auto;
+  gap: 0.75rem;
+  overflow-x: auto;
+  overflow-y: visible;
+  padding: 1rem 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
   z-index: 1;
 }
 
-.offering_flow_node {
+.offering_stepper_track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.offering_stepper_track::-webkit-scrollbar-track {
+  background: rgba(1, 170, 35, 0.08);
+  border-radius: 3px;
+}
+
+.offering_stepper_track::-webkit-scrollbar-thumb {
+  background: linear-gradient(90deg, #01AA23, #0193FF);
+  border-radius: 3px;
+}
+
+/* Glassmorphism card */
+.offering_stepper_card {
+  flex: 0 0 auto;
+  width: clamp(160px, 18vw, 200px);
+  min-width: 160px;
+  padding: 1.25rem 1rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  flex-shrink: 0;
+  align-items: flex-start;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  scroll-snap-align: center;
 }
 
-.offering_flow_icon_circle {
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.75rem;
+.offering_stepper_card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(1, 170, 35, 0.12);
 }
 
-.offering_flow_start {
-  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
-  box-shadow: 0 8px 24px rgba(1, 170, 35, 0.35);
+/* Completed & Active = fully opaque */
+.offering_stepper_card_completed,
+.offering_stepper_card_active {
+  opacity: 1;
 }
 
-.offering_flow_end {
-  background: linear-gradient(135deg, #0193FF 0%, #0d6efd 100%);
-  box-shadow: 0 8px 24px rgba(1, 147, 255, 0.35);
+.offering_stepper_card_active {
+  background: rgba(255, 255, 255, 0.7);
+  border-color: rgba(1, 170, 35, 0.35);
+  box-shadow: 0 6px 28px rgba(1, 170, 35, 0.15);
 }
 
-.offering_code_icon {
-  font-family: "SF Mono", "Monaco", monospace;
-  font-weight: 700;
+/* Future steps = slightly transparent */
+.offering_stepper_card_future {
+  opacity: 0.55;
 }
 
-.offering_node_label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #01AA23;
-}
-
-.offering_flow_node:last-child .offering_node_label {
-  color: #0193FF;
-}
-
-.offering_flow_mid {
-  flex: 1;
-  min-width: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.offering_flow_mid_left {
-  justify-content: flex-start;
-}
-
-.offering_flow_mid_right {
-  justify-content: flex-end;
-}
-
-.offering_flow_center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  flex-shrink: 0;
-}
-
-/* Chat bubbles */
-.offering_chat_bubbles {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.offering_right_bubbles {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  align-items: flex-end;
-}
-
-.offering_right_bubbles .offering_bubble {
-  max-width: 280px;
-  text-align: right;
-}
-
-.offering_bubble {
-  padding: 0.75rem 1.15rem;
-  border-radius: 14px;
-  max-width: 280px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.offering_bubble_query {
-  background: linear-gradient(135deg, #0f766e 0%, #0d9488 50%, #14b8a6 100%);
-  color: white;
-  border: none;
-  animation: offeringBubbleFade 0.6s ease-out;
-}
-
-.offering_bubble_response {
-  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
-  color: white;
-  margin-left: 1rem;
-  animation: offeringBubbleFade 0.6s ease-out 0.15s both;
-}
-
-.offering_bubble_earnings {
-  background: linear-gradient(135deg, #0369a1 0%, #0ea5e9 100%);
-  color: white;
-  margin-right: 0;
-  margin-left: auto;
-  animation: offeringBubbleFade 0.6s ease-out 0.3s both;
-}
-
-@keyframes offeringBubbleFade {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.offering_bubble_text {
-  font-size: 0.95rem;
-  font-weight: 500;
-  flex: 1;
-}
-
-.offering_bubble_time {
-  font-size: 0.75rem;
-  opacity: 0.8;
-}
-
-.offering_bubble_check {
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-/* Offering stack icons (3 in flow) */
-.offering_stack {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: center;
-}
-
-.offering_stack_icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 12px;
-  background: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: #01AA23;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.offering_stack_icon:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(1, 170, 35, 0.25);
-}
-
-/* Platform icons - WhatsApp, Web, Email */
-.offering_platform_icons {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.offering_platform_icon {
-  width: 36px;
-  height: 36px;
+.offering_stepper_card_icon {
+  width: 40px;
+  height: 40px;
   border-radius: 10px;
-  background: white;
+  background: linear-gradient(135deg, rgba(1, 170, 35, 0.2) 0%, rgba(1, 147, 255, 0.2) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(1, 170, 35, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.offering_platform_icon:hover {
-  transform: scale(1.15);
-  box-shadow: 0 6px 20px rgba(1, 170, 35, 0.25);
-}
-
-.offering_platform_icon:nth-child(1) {
-  color: #25d366;
-}
-
-.offering_platform_icon:nth-child(2) {
   color: #01AA23;
+  margin-bottom: 0.75rem;
+  flex-shrink: 0;
 }
 
-.offering_platform_icon:nth-child(3) {
-  color: #0193FF;
+.offering_stepper_card_active .offering_stepper_card_icon {
+  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
+  color: white;
+}
+
+.offering_stepper_card_heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  line-height: 1.25;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.offering_stepper_card_time {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: auto;
+  padding-top: 0.5rem;
+  font-weight: 500;
 }
 
 /* Offering cards grid - brighter, eye-catching, animated */
@@ -400,40 +231,22 @@
 }
 
 @media (max-width: 768px) {
-  .offering_flow_row {
-    flex-direction: column;
-    gap: 1.5rem;
+  .offering_stepper_track {
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
-  .offering_flow_svg {
-    min-height: 400px;
+  .offering_stepper_card {
+    min-width: 140px;
   }
 
-  .offering_chat_bubbles {
-    position: static;
-    transform: none;
-    width: 100%;
-    order: 2;
-  }
-
-  .offering_stack {
-    flex-direction: row;
-    justify-content: center;
+  .offering_stepper_line {
+    left: 2%;
+    right: 2%;
   }
 
   .offering_cards_grid {
     grid-template-columns: 1fr;
-  }
-
-  .offering_right_bubbles {
-    position: static;
-    transform: none;
-    align-items: stretch;
-  }
-
-  .offering_right_bubbles .offering_bubble {
-    text-align: left;
-    margin-left: 0;
-    margin-right: 0;
   }
 }

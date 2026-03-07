@@ -9,6 +9,7 @@ import {
   FaWhatsapp,
   FaCheckCircle,
   FaGlobe,
+  FaEnvelope,
 } from "react-icons/fa";
 import data from "../../data.json";
 import "./Offering.css";
@@ -72,6 +73,36 @@ const Offering = () => {
           </div>
 
           <div className="offering_flow_diagram">
+            <div className="offering_flow_svg_wrap">
+              <svg className="offering_flow_svg" viewBox="0 0 1000 220" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <linearGradient id="offeringLineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#01AA23" stopOpacity="0.9" />
+                    <stop offset="50%" stopColor="#0193FF" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#0d6efd" stopOpacity="0.9" />
+                  </linearGradient>
+                  <linearGradient id="offeringLineGrad2" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stopColor="#0d6efd" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#01AA23" stopOpacity="0.9" />
+                  </linearGradient>
+                </defs>
+                {/* Main flowing curve - green to blue */}
+                <path className="offering_flow_path offering_flow_path_main" d="M 80 110 C 200 80 280 140 360 110 C 440 80 520 140 600 110 C 680 80 760 140 920 110" fill="none" stroke="url(#offeringLineGrad)" strokeWidth="2.5" strokeDasharray="10 8" />
+                {/* Top accent curve */}
+                <path className="offering_flow_path offering_flow_path_top" d="M 200 110 Q 350 40 500 90 Q 650 140 800 110" fill="none" stroke="url(#offeringLineGrad)" strokeWidth="1.5" strokeOpacity="0.5" strokeDasharray="6 10" />
+                {/* Bottom accent curve */}
+                <path className="offering_flow_path offering_flow_path_bot" d="M 200 110 Q 350 180 500 130 Q 650 80 800 110" fill="none" stroke="url(#offeringLineGrad)" strokeWidth="1.5" strokeOpacity="0.5" strokeDasharray="6 10" />
+                {/* Right segment emphasis */}
+                <path className="offering_flow_path offering_flow_path_right" d="M 600 110 C 700 100 800 120 920 110" fill="none" stroke="url(#offeringLineGrad2)" strokeWidth="2" strokeOpacity="0.8" strokeDasharray="8 6" />
+                {/* Dots along flow */}
+                <circle cx="180" cy="110" r="4" fill="white" className="offering_flow_dot" />
+                <circle cx="360" cy="110" r="4" fill="white" className="offering_flow_dot" />
+                <circle cx="500" cy="110" r="4" fill="white" className="offering_flow_dot" />
+                <circle cx="600" cy="110" r="4" fill="white" className="offering_flow_dot" />
+                <circle cx="760" cy="110" r="4" fill="white" className="offering_flow_dot" />
+              </svg>
+            </div>
+
             <div className="offering_flow_row">
               <div className="offering_flow_node">
                 <div className="offering_flow_icon_circle offering_flow_start">
@@ -80,8 +111,7 @@ const Offering = () => {
                 <span className="offering_node_label">Portal</span>
               </div>
 
-              <div className="offering_flow_mid">
-                <div className="offering_flow_line" />
+              <div className="offering_flow_mid offering_flow_mid_left">
                 <div className="offering_chat_bubbles">
                   {messages.map((msg, i) => (
                     <div
@@ -98,19 +128,31 @@ const Offering = () => {
                 </div>
               </div>
 
-              <div className="offering_stack">
-                {offering_content.slice(0, 3).map((item, i) => {
-                  const Icon = offeringIconMap[item.icon] || FaGlobe;
-                  return (
-                    <div key={item.heading} className="offering_stack_icon">
-                      <Icon />
-                    </div>
-                  );
-                })}
+              <div className="offering_flow_center">
+                <div className="offering_stack">
+                  {offering_content.slice(0, 3).map((item, i) => {
+                    const Icon = offeringIconMap[item.icon] || FaGlobe;
+                    return (
+                      <div key={item.heading} className="offering_stack_icon">
+                        <Icon />
+                      </div>
+                    );
+                  })}
+                </div>
+                <div className="offering_platform_icons">
+                  <div className="offering_platform_icon" title="WhatsApp">
+                    <FaWhatsapp />
+                  </div>
+                  <div className="offering_platform_icon" title="Web Portal">
+                    <FaGlobe />
+                  </div>
+                  <div className="offering_platform_icon" title="Email">
+                    <FaEnvelope />
+                  </div>
+                </div>
               </div>
 
               <div className="offering_flow_mid offering_flow_mid_right">
-                <div className="offering_flow_line offering_flow_line_right" />
                 <div className="offering_right_bubbles">
                   {rightMessages.map((msg, i) => (
                     <div key={i} className="offering_bubble offering_bubble_earnings">

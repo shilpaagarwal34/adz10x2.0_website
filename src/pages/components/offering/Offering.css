@@ -32,24 +32,78 @@
   margin: 0;
 }
 
-/* Flow diagram - bigger, Gupshup style */
+/* Flow diagram - Gupshup style with curved lines */
 .offering_flow_diagram {
-  background: linear-gradient(135deg, rgba(1, 170, 35, 0.1) 0%, rgba(1, 147, 255, 0.12) 100%);
+  position: relative;
+  background: linear-gradient(135deg, rgba(1, 170, 35, 0.08) 0%, rgba(1, 147, 255, 0.12) 100%);
   border-radius: 28px;
   padding: 3rem 2rem;
   margin-bottom: 2.5rem;
-  box-shadow: 0 6px 32px rgba(1, 147, 255, 0.12);
-  border: 1px solid rgba(1, 170, 35, 0.2);
+  box-shadow: 0 8px 40px rgba(1, 147, 255, 0.15), 0 0 0 1px rgba(1, 170, 35, 0.15);
+  border: 1px solid rgba(1, 170, 35, 0.25);
+  overflow: hidden;
+}
+
+.offering_flow_svg_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+.offering_flow_svg {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+}
+
+.offering_flow_path {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: offeringPathDash 20s linear infinite;
+}
+
+.offering_flow_path_main {
+  stroke-dasharray: 12 8;
+}
+
+.offering_flow_path_top,
+.offering_flow_path_bot {
+  stroke-dasharray: 6 8;
+}
+
+.offering_flow_dot {
+  animation: offeringDotPulse 2s ease-in-out infinite;
+}
+
+.offering_flow_dot:nth-child(5) { animation-delay: 0.2s; }
+.offering_flow_dot:nth-child(6) { animation-delay: 0.4s; }
+.offering_flow_dot:nth-child(7) { animation-delay: 0.6s; }
+.offering_flow_dot:nth-child(8) { animation-delay: 0.8s; }
+.offering_flow_dot:nth-child(9) { animation-delay: 1s; }
+
+@keyframes offeringPathDash {
+  to { stroke-dashoffset: -200; }
+}
+
+@keyframes offeringDotPulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
 .offering_flow_row {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
   max-width: 1100px;
   margin: 0 auto;
+  z-index: 1;
 }
 
 .offering_flow_node {
@@ -98,22 +152,27 @@
 
 .offering_flow_mid {
   flex: 1;
-  min-width: 80px;
+  min-width: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.offering_flow_line {
-  height: 2px;
-  flex: 1;
-  background: linear-gradient(90deg, rgba(1, 170, 35, 0.5) 0%, rgba(1, 147, 255, 0.5) 100%);
-  border-radius: 2px;
+.offering_flow_mid_left {
+  justify-content: flex-start;
 }
 
-.offering_flow_line_right {
-  background: linear-gradient(90deg, rgba(1, 147, 255, 0.5) 0%, rgba(1, 170, 35, 0.5) 100%);
+.offering_flow_mid_right {
+  justify-content: flex-end;
+}
+
+.offering_flow_center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
 }
 
 /* Chat bubbles */
@@ -230,6 +289,46 @@
   box-shadow: 0 8px 20px rgba(1, 170, 35, 0.25);
 }
 
+/* Platform icons - WhatsApp, Web, Email */
+.offering_platform_icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.offering_platform_icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(1, 170, 35, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.offering_platform_icon:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(1, 170, 35, 0.25);
+}
+
+.offering_platform_icon:nth-child(1) {
+  color: #25d366;
+}
+
+.offering_platform_icon:nth-child(2) {
+  color: #01AA23;
+}
+
+.offering_platform_icon:nth-child(3) {
+  color: #0193FF;
+}
+
 /* Offering cards grid - brighter, eye-catching, animated */
 .offering_cards_grid {
   display: grid;
@@ -306,10 +405,8 @@
     gap: 1.5rem;
   }
 
-  .offering_flow_mid .offering_flow_line {
-    width: 2px;
-    height: 40px;
-    background: linear-gradient(180deg, rgba(1, 170, 35, 0.5) 0%, rgba(1, 147, 255, 0.5) 100%);
+  .offering_flow_svg {
+    min-height: 400px;
   }
 
   .offering_chat_bubbles {

@@ -56,7 +56,39 @@ const Banner_One = () => {
               alt=""
               aria-hidden
             />
-            <div className="banner4_society_visual_inner" />
+            <div className="banner4_society_visual_inner">
+              <div className="banner4_society_semicircle_wrap">
+                <svg
+                  className="banner4_society_semicircle_svg"
+                  viewBox="0 0 200 120"
+                  fill="none"
+                  aria-hidden
+                >
+                  <defs>
+                    <linearGradient id="societyArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#01AA23" />
+                      <stop offset="100%" stopColor="#0193FF" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    className="banner4_society_arc"
+                    d="M 20 100 A 80 80 0 0 1 180 100"
+                    fill="none"
+                    stroke="url(#societyArcGrad)"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                  />
+                </svg>
+                <div className="banner4_society_arc_labels">
+                  {["Earnings", "Control", "Income", "Payouts", "Growth"].map((word) => (
+                    <span key={word} className="banner4_society_arc_label">
+                      {word}
+                    </span>
+                  ))}
+                </div>
+                <div className="banner4_society_semicircle_center" aria-hidden />
+              </div>
+            </div>
           </div>
         </div>
       </div>

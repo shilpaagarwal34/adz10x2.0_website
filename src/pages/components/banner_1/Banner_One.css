@@ -128,6 +128,93 @@
     rgba(255, 255, 255, 0.4) 50%,
     rgba(1, 147, 255, 0.06) 100%
   );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Semi-circle rotating diagram (Gupshup-style) – whole diagram rotates */
+.banner4_society_semicircle_wrap {
+  position: relative;
+  width: 85%;
+  max-width: 320px;
+  aspect-ratio: 1.6 / 1;
+  animation: banner4_semicircle_rotate 25s linear infinite;
+}
+
+@keyframes banner4_semicircle_rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.banner4_society_semicircle_svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.banner4_society_arc {
+  filter: drop-shadow(0 2px 8px rgba(1, 170, 35, 0.2));
+}
+
+.banner4_society_arc_labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.banner4_society_arc_label {
+  position: absolute;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  background: #fff;
+  padding: 0.4rem 0.75rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  white-space: nowrap;
+  font-family: "Barlow Condensed", sans-serif;
+  animation: banner4_label_float 4s ease-in-out infinite;
+}
+
+.banner4_society_arc_label:nth-child(1) { bottom: 8%; left: 12%; animation-delay: 0s; }
+.banner4_society_arc_label:nth-child(2) { bottom: 28%; left: 4%; animation-delay: 0.5s; }
+.banner4_society_arc_label:nth-child(3) { top: 8%; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
+.banner4_society_arc_label:nth-child(4) { bottom: 28%; right: 4%; animation-delay: 1.5s; }
+.banner4_society_arc_label:nth-child(5) { bottom: 8%; right: 12%; animation-delay: 2s; }
+
+@keyframes banner4_label_float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.banner4_society_arc_label:nth-child(3) {
+  animation-name: banner4_label_float_center;
+}
+
+@keyframes banner4_label_float_center {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-4px); }
+}
+
+.banner4_society_semicircle_center {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  left: 50%;
+  margin-top: -24px;
+  margin-left: -24px;
+  background: linear-gradient(135deg, rgba(1, 170, 35, 0.2) 0%, rgba(1, 147, 255, 0.2) 100%);
+  border-radius: 50%;
+  animation: banner4_center_pulse 3s ease-in-out infinite;
+}
+
+@keyframes banner4_center_pulse {
+  0%, 100% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.1); opacity: 1; }
 }
 
 .banner4_society_corner {

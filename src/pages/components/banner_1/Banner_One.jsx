@@ -4,10 +4,10 @@ import GetStartedBtn from "../GetStartedBtn";
 import "./Banner_One.css";
 
 const ROTATION_DURATION_MS = 30000;
-const BOX_ANGLES = [180, 225, 270, 315, 360];
+const BOX_ANGLES = [210, 240, 270, 300, 330];
 
 const Banner_One = () => {
-  const { title, features } = data.banner_1;
+  const { title, center_image, features } = data.banner_1;
   const [rotation, setRotation] = useState(0);
   const [arcRadius, setArcRadius] = useState(200);
   const zoneRef = useRef(null);
@@ -51,6 +51,13 @@ const Banner_One = () => {
       </div>
 
       <div ref={zoneRef} className="banner4_society_semicircle_zone">
+        <div className="banner4_society_center_image_wrap" aria-hidden>
+          <img
+            src={center_image || "/society-center.png"}
+            alt="Society"
+            className="banner4_society_center_image"
+          />
+        </div>
         <svg
           className="banner4_society_semicircle_svg"
           viewBox="0 0 800 400"

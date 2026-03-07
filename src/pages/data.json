@@ -83,6 +83,7 @@
   },
   "banner_1": {
     "title": "Why Your Society Shouldn't Miss This Opportunity",
+    "center_image": "/society-center.png",
     "features": [
       {
         "heading": "Turn Daily Engagement Into Monthly Earnings",

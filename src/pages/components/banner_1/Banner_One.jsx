@@ -30,7 +30,7 @@ const Banner_One = () => {
       if (!zoneRef.current) return;
       const rect = zoneRef.current.getBoundingClientRect();
       const r = Math.min(rect.width / 2, rect.height);
-      setArcRadius(Math.max(120, r));
+      setArcRadius(Math.max(100, Math.round(r * 0.82)));
     };
     const t = setTimeout(measure, 0);
     const ro = new ResizeObserver(measure);

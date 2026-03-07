@@ -17,12 +17,12 @@
   text-align: center;
 }
 
-/* Full-width semi-circle zone - arc at bottom, covers entire area */
+/* Full-width semi-circle zone - arc at bottom, reduced size */
 .banner4_society_semicircle_zone {
   position: relative;
   width: 100%;
-  padding-bottom: 50%;
-  min-height: 320px;
+  padding-bottom: 38%;
+  min-height: 260px;
   margin: 0 0 2rem 0;
   overflow: visible;
 }
@@ -138,8 +138,8 @@
 
 @media (max-width: 768px) {
   .banner4_society_semicircle_zone {
-    padding-bottom: 45%;
-    min-height: 260px;
+    padding-bottom: 36%;
+    min-height: 220px;
   }
 
   .banner4_society_semicircle_box {

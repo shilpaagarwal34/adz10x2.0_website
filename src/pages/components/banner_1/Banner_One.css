@@ -1,0 +1,159 @@
+/* Apple-style Bento Grid - Why Your Society Shouldn't Miss This */
+.banner4_bento {
+  background: linear-gradient(
+    180deg,
+    rgba(21, 176, 54, 0.04) 0%,
+    rgba(9, 74, 23, 0.04) 100%
+  );
+}
+
+.banner4_bento_title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 800;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.banner4_bento_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 3rem;
+}
+
+.banner4_bento_card {
+  border-radius: 24px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 1.75rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.banner4_bento_card:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card 1: Double width, mesh gradient */
+.banner4_bento_card_hero {
+  grid-column: span 2;
+  background: linear-gradient(
+    135deg,
+    rgba(1, 170, 35, 0.06) 0%,
+    rgba(255, 255, 255, 0.9) 40%,
+    rgba(1, 147, 255, 0.06) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.banner4_bento_card_hero_title {
+  font-size: clamp(1.5rem, 2.5vw, 1.875rem);
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.banner4_bento_card_hero_sub {
+  font-size: 1rem;
+  color: #475569;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Small cards */
+.banner4_bento_card_small {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 180px;
+}
+
+.banner4_bento_card_icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(
+    135deg,
+    rgba(1, 170, 35, 0.1) 0%,
+    rgba(1, 147, 255, 0.1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #01AA23;
+  margin-bottom: 1rem;
+}
+
+.banner4_bento_card_icon_building {
+  font-size: 1.75rem;
+  color: #0193FF;
+}
+
+.banner4_bento_card_heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+/* Medium card (Smart Revenue Hubs) */
+.banner4_bento_card_medium {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 160px;
+}
+
+/* Floating Apple-style pill CTA */
+.banner4_bento_cta_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0.5rem;
+}
+
+.banner4_bento_pill {
+  display: inline-flex;
+}
+
+.banner4_bento_pill .btn {
+  border-radius: 9999px;
+  padding: 0.875rem 1.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  background: linear-gradient(97.02deg, #01AA23 0%, #0193FF 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 14px rgba(1, 170, 35, 0.25);
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.banner4_bento_pill .btn:hover {
+  box-shadow: 0 6px 20px rgba(1, 170, 35, 0.35);
+  transform: translateY(-1px);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .banner4_bento_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .banner4_bento_card_hero,
+  .banner4_bento_card_medium {
+    grid-column: span 1;
+  }
+
+  .banner4_bento_card {
+    min-height: 140px;
+  }
+}

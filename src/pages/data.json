@@ -153,6 +153,31 @@
       }
     ]
   },
+  "channels": {
+    "title": "24/7 Access Through Preferred Channels",
+    "subtitle": "Reach societies and brands where they are—WhatsApp, web portal, and more. Seamless engagement across every touchpoint.",
+    "channels_list": [
+      {
+        "name": "WhatsApp",
+        "icon": "whatsapp",
+        "description": "Campaigns delivered directly to society WhatsApp groups"
+      },
+      {
+        "name": "Web Portal",
+        "icon": "portal",
+        "description": "Full-featured dashboard for societies and brands"
+      },
+      {
+        "name": "Email",
+        "icon": "email",
+        "description": "Alerts and reports delivered to your inbox"
+      }
+    ],
+    "flow_messages": [
+      { "type": "query", "text": "New campaign request for our society", "time": "05:41 pm" },
+      { "type": "response", "text": "Campaign approved and live!", "time": "05:42 pm" }
+    ]
+  },
   "brands": {
     "title": "Industries We Cater To",
     "categories": [

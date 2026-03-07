@@ -10,12 +10,7 @@ const Offering = () => {
   return (
     <>
       <section className="our_offering_section section_padding">
-        <div className="container section">
-          <h1 className="gradient-text">{title}</h1>
-          <p>{sub_heading}</p>
-        </div>
-
-        <div className="offering_marquee_full_bleed mt-4">
+        <div className="offering_marquee_full_bleed">
           <div className="offering_marquee_shell">
             <div className="offering_marquee_row">
               <div className="offering_marquee_track">
@@ -38,6 +33,11 @@ const Offering = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="container section mt-4">
+          <h1 className="gradient-text">{title}</h1>
+          <p>{sub_heading}</p>
         </div>
 
         <div className="container section">

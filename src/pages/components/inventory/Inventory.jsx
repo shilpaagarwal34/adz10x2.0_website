@@ -26,20 +26,25 @@ const Inventory = () => {
         <h1 className="gradient-text mb-2">{title}</h1>
         <p className="mb-4">{subtitle}</p>
 
-        <div className="row g-3">
-          {items.map((item) => (
-            <div className="col-12 col-md-6 col-lg-4" key={item.title}>
-              <div className="inventory_card h-100">
-                <div className="inventory_card_title_wrap">
+        <div className="inventory_path_shell">
+          <div className="inventory_path_line" />
+          <div className="inventory_path_grid">
+          {items.map((item, index) => (
+              <article
+                className={`inventory_path_node ${index % 2 === 0 ? "up" : "down"}`}
+                key={item.title}
+              >
+                <span className="inventory_step_badge">{index + 1}</span>
+                <div className="inventory_path_node_title">
                   <span className="inventory_icon">
                     {React.createElement(iconMap[item.title] || FaBroadcastTower)}
                   </span>
                   <h3>{item.title}</h3>
                 </div>
                 <p>{item.description}</p>
-              </div>
-            </div>
+              </article>
           ))}
+          </div>
         </div>
       </div>
     </section>

@@ -833,22 +833,130 @@ ul.custom-square-list li::before {
     pointer-events: none;
 }
 
-.inventory_card {
+.inventory_path_shell {
     position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.45);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.55);
-    backdrop-filter: blur(5px);
-    padding: 18px;
-    box-shadow: 0 8px 24px rgba(16, 25, 35, 0.07);
-    transition: none;
+    padding: 42px 10px 34px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(34, 88, 160, 0.45) rgba(211, 226, 240, 0.5);
 }
 
-.inventory_card_title_wrap {
+.inventory_path_shell::-webkit-scrollbar {
+    height: 8px;
+}
+
+.inventory_path_shell::-webkit-scrollbar-track {
+    background: rgba(211, 226, 240, 0.55);
+    border-radius: 999px;
+}
+
+.inventory_path_shell::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(1, 170, 35, 0.72), rgba(1, 147, 255, 0.78));
+    border-radius: 999px;
+}
+
+.inventory_path_grid {
+    position: relative;
+    min-width: 1160px;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+    align-items: start;
+    z-index: 2;
+}
+
+.inventory_path_line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 12px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, rgba(1, 170, 35, 0.72), rgba(1, 147, 255, 0.78));
+    box-shadow: 0 10px 24px rgba(15, 56, 120, 0.24);
+}
+
+.inventory_path_node {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.62);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(6px);
+    padding: 16px;
+    box-shadow: 0 12px 28px rgba(16, 25, 35, 0.10);
+    min-height: 170px;
+}
+
+.inventory_path_node.up {
+    transform: translateY(-32px);
+}
+
+.inventory_path_node.down {
+    transform: translateY(32px);
+}
+
+.inventory_path_node::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 26px;
+    background: rgba(45, 83, 145, 0.35);
+}
+
+.inventory_path_node::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #1d6fe2;
+    box-shadow: 0 0 0 3px rgba(29, 111, 226, 0.17);
+}
+
+.inventory_path_node.up::before {
+    bottom: -26px;
+}
+
+.inventory_path_node.down::before {
+    top: -26px;
+}
+
+.inventory_path_node.up::after {
+    bottom: -31px;
+}
+
+.inventory_path_node.down::after {
+    top: -31px;
+}
+
+.inventory_step_badge {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(1, 170, 35, 0.96), rgba(1, 147, 255, 0.96));
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.inventory_path_node_title {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    padding-right: 28px;
 }
 
 .inventory_icon {
@@ -864,29 +972,35 @@ ul.custom-square-list li::before {
     flex-shrink: 0;
 }
 
-.inventory_card h3 {
-    font-size: 22px;
+.inventory_path_node h3 {
+    font-size: 21px;
     font-weight: 700;
     margin-bottom: 0;
     color: #242527;
     line-height: 1.2;
 }
 
-.inventory_card p {
+.inventory_path_node p {
     margin-bottom: 0;
     color: #3f4c58;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 /* apply highlight only on true hover devices */
 @media (hover: hover) and (pointer: fine) {
-    .inventory_card {
+    .inventory_path_node {
         transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
     }
 
-    .inventory_card:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 12px 28px rgba(15, 25, 35, 0.13);
-        background: rgba(255, 255, 255, 0.74);
+    .inventory_path_node.up:hover {
+        transform: translateY(-38px);
+        box-shadow: 0 16px 34px rgba(15, 25, 35, 0.18);
+    }
+
+    .inventory_path_node.down:hover {
+        transform: translateY(26px);
+        box-shadow: 0 16px 34px rgba(15, 25, 35, 0.18);
     }
 }
 
@@ -956,6 +1070,36 @@ ul.custom-square-list li::before {
 
     .offering_feature_card h3 {
         font-size: 30px;
+    }
+
+    .inventory_path_shell {
+        padding: 26px 4px 26px;
+    }
+
+    .inventory_path_grid {
+        min-width: 920px;
+        gap: 12px;
+    }
+
+    .inventory_path_node {
+        min-height: 160px;
+        padding: 14px;
+    }
+
+    .inventory_path_node.up {
+        transform: translateY(-18px);
+    }
+
+    .inventory_path_node.down {
+        transform: translateY(18px);
+    }
+
+    .inventory_path_node h3 {
+        font-size: 18px;
+    }
+
+    .inventory_path_node p {
+        font-size: 13px;
     }
 
     .foot_box {
@@ -1042,6 +1186,49 @@ ul.custom-square-list li::before {
 
     .offering_feature_card p {
         font-size: 14px;
+    }
+
+    .inventory_path_grid {
+        min-width: 760px;
+        gap: 10px;
+    }
+
+    .inventory_path_line {
+        height: 8px;
+    }
+
+    .inventory_path_node {
+        min-height: 150px;
+        padding: 12px;
+        border-radius: 12px;
+    }
+
+    .inventory_path_node.up {
+        transform: translateY(-8px);
+    }
+
+    .inventory_path_node.down {
+        transform: translateY(8px);
+    }
+
+    .inventory_path_node::before {
+        height: 14px;
+    }
+
+    .inventory_path_node.up::before {
+        bottom: -14px;
+    }
+
+    .inventory_path_node.down::before {
+        top: -14px;
+    }
+
+    .inventory_path_node.up::after {
+        bottom: -19px;
+    }
+
+    .inventory_path_node.down::after {
+        top: -19px;
     }
 
     .about_img img {

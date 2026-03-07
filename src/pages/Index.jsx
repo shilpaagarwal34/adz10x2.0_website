@@ -5,7 +5,6 @@ import Banner_slider from './components/banner_slider/Banner_slider.jsx';
 const About = lazy(() => import('./components/about/About.jsx'));
 const Offering = lazy(() => import('./components/offering/Offering.jsx'));
 const Inventory = lazy(() => import('./components/inventory/Inventory.jsx'));
-const ChannelsSection = lazy(() => import('./components/channels/ChannelsSection.jsx'));
 const Brands = lazy(() => import('./components/brands/Brands.jsx'));
 const Banner_One = lazy(() => import('./components/banner_1/Banner_One.jsx'));
 const Banner_Two = lazy(() => import('./components/banner_2/Banner_Two.jsx'));
@@ -21,8 +20,6 @@ const Index = () => {
                 <Offering />
 
                 <Inventory />
-
-                <ChannelsSection />
 
                 <Brands />
 

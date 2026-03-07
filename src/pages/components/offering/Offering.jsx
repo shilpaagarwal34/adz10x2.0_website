@@ -8,10 +8,10 @@ import {
   FaMapMarkerAlt,
   FaWhatsapp,
   FaGlobe,
-  FaThLarge,
-  FaPaperPlane,
-  FaCodeBranch,
-  FaWallet,
+  FaPlusCircle,
+  FaClipboardCheck,
+  FaPlay,
+  FaBroadcastTower,
   FaCheckCircle,
 } from "react-icons/fa";
 import data from "../../data.json";
@@ -26,11 +26,11 @@ const offeringIconMap = {
 };
 
 const PROCESS_STEPS = [
-  { id: "portal", heading: "Portal", icon: FaThLarge, time: "05:40 pm" },
-  { id: "campaign", heading: "Campaign Request", icon: FaPaperPlane, time: "05:41 pm" },
-  { id: "matching", heading: "Smart Matching", icon: FaCodeBranch, time: "05:42 pm" },
-  { id: "revenue", heading: "Revenue Allocation", icon: FaWallet, time: "05:43 pm" },
-  { id: "live", heading: "Live", icon: FaCheckCircle, time: "05:44 pm" },
+  { id: "create", heading: "Create Campaign", icon: FaPlusCircle, time: "05:40 pm" },
+  { id: "approve", heading: "Society Approves", icon: FaClipboardCheck, time: "05:41 pm" },
+  { id: "live", heading: "Go Live", icon: FaPlay, time: "05:42 pm" },
+  { id: "progress", heading: "Campaign Runs", icon: FaBroadcastTower, time: "05:43 pm" },
+  { id: "complete", heading: "Complete", icon: FaCheckCircle, time: "05:44 pm" },
 ];
 
 const Offering = () => {

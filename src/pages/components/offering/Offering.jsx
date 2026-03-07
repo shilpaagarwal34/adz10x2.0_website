@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaRegCheckCircle,
   FaBolt,
@@ -33,11 +33,21 @@ const PROCESS_STEPS = [
   { id: "complete", heading: "Complete", icon: FaCheckCircle, time: "05:44 pm" },
 ];
 
+const STEP_COUNT = PROCESS_STEPS.length;
+const STEP_DURATION_MS = 2500;
+
 const Offering = () => {
-  const [activeStep, setActiveStep] = useState(2);
+  const [activeStep, setActiveStep] = useState(0);
   const { title, sub_heading, offering_content } = data.offering;
   const offeringLabels = offering_content.map((item) => item.heading);
   const marqueeRow = [...offeringLabels, ...offeringLabels];
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % STEP_COUNT);
+    }, STEP_DURATION_MS);
+    return () => clearInterval(t);
+  }, []);
 
   return (
     <>

@@ -99,7 +99,8 @@
   align-items: flex-start;
   text-align: left;
   cursor: pointer;
-  transition: opacity 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+  transition: opacity 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease,
+    border-color 0.4s ease, background 0.4s ease;
   scroll-snap-align: center;
 }
 
@@ -115,9 +116,10 @@
 }
 
 .offering_stepper_card_active {
-  background: rgba(255, 255, 255, 0.7);
-  border-color: rgba(1, 170, 35, 0.35);
-  box-shadow: 0 6px 28px rgba(1, 170, 35, 0.15);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: #01AA23;
+  box-shadow: 0 0 0 2px rgba(1, 170, 35, 0.25), 0 8px 28px rgba(1, 170, 35, 0.2);
+  transform: scale(1.02);
 }
 
 /* Future steps = readable, slightly softer than active */
@@ -151,6 +153,7 @@
   margin-bottom: 0.75rem;
   flex-shrink: 0;
   font-size: 1.15rem;
+  transition: background 0.4s ease, color 0.4s ease, transform 0.3s ease;
 }
 
 .offering_stepper_card_active .offering_stepper_card_icon {

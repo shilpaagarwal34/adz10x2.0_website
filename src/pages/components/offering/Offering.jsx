@@ -13,8 +13,10 @@ const Offering = () => {
         <div className="container section">
           <h1 className="gradient-text">{title}</h1>
           <p>{sub_heading}</p>
+        </div>
 
-          <div className="offering_marquee_shell mt-4">
+        <div className="offering_marquee_full_bleed mt-4">
+          <div className="offering_marquee_shell">
             <div className="offering_marquee_row">
               <div className="offering_marquee_track">
                 {marqueeRow.map((label, index) => (
@@ -36,7 +38,9 @@ const Offering = () => {
               </div>
             </div>
           </div>
+        </div>
 
+        <div className="container section">
           <div className="offering_feature_grid mt-4">
             {offering_content.map((item) => (
               <article key={item.heading} className="offering_feature_card">

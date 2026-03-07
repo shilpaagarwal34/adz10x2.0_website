@@ -409,6 +409,14 @@ body {
     overflow: hidden;
 }
 
+.offering_marquee_full_bleed {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
 .offering_marquee_row {
     overflow: hidden;
     white-space: nowrap;
@@ -1011,6 +1019,11 @@ ul.custom-square-list li::before {
     .offering_marquee_shell {
         padding: 12px;
         border-radius: 16px;
+    }
+
+    .offering_marquee_full_bleed {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .offering_marquee_chip {

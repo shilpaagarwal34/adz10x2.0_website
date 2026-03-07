@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import data from "../../data.json";
 import GetStartedBtn from "../GetStartedBtn";
 import "./Banner_One.css";
@@ -9,6 +9,8 @@ const BOX_ANGLES = [180, 225, 270, 315, 360];
 const Banner_One = () => {
   const { title, features } = data.banner_1;
   const [rotation, setRotation] = useState(0);
+  const [arcRadius, setArcRadius] = useState(200);
+  const zoneRef = useRef(null);
 
   useEffect(() => {
     const start = Date.now();
@@ -23,13 +25,32 @@ const Banner_One = () => {
     return () => cancelAnimationFrame(raf);
   }, []);
 
+  useEffect(() => {
+    const measure = () => {
+      if (!zoneRef.current) return;
+      const rect = zoneRef.current.getBoundingClientRect();
+      const r = Math.min(rect.width / 2, rect.height);
+      setArcRadius(Math.max(120, r));
+    };
+    const t = setTimeout(measure, 0);
+    const ro = new ResizeObserver(measure);
+    const el = zoneRef.current;
+    if (el) ro.observe(el);
+    window.addEventListener("resize", measure);
+    return () => {
+      clearTimeout(t);
+      ro.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
+
   return (
     <section className="banner4 banner4_society section_padding" id="society">
       <div className="container">
         <h1 className="banner4_society_title gradient-text">{title}</h1>
       </div>
 
-      <div className="banner4_society_semicircle_zone">
+      <div ref={zoneRef} className="banner4_society_semicircle_zone">
         <svg
           className="banner4_society_semicircle_svg"
           viewBox="0 0 800 400"
@@ -53,7 +74,10 @@ const Banner_One = () => {
         </svg>
         <div
           className="banner4_society_semicircle_rotate"
-          style={{ transform: `rotate(${rotation}deg)` }}
+          style={{
+            transform: `rotate(${rotation}deg)`,
+            "--arc-r": `${arcRadius}px`,
+          }}
         >
           {features.slice(0, 5).map((item, index) => {
             const angle = BOX_ANGLES[index];

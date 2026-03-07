@@ -60,7 +60,7 @@
   width: 200px;
   cursor: pointer;
   transform-origin: 50% 100%;
-  transform: rotate(var(--angle)) translateY(-50%);
+  transform: rotate(var(--angle)) translateY(calc(-1 * var(--arc-r, 200px)));
 }
 
 .banner4_society_semicircle_box_inner {

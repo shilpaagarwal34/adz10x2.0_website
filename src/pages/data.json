@@ -16,12 +16,12 @@
       "WhatsApp Promo"
     ],
     "media_platforms": [
-      "WhatsApp Promotional Day",
+      "WhatsApp Group Promotion",
       "Lift Branding Panels",
-      "Notice Board Sponsorship",
-      "Gate Entry/Exit Branding",
-      "Society Kiosk",
-      "Event Sponsorship"
+      "Notice Board Advertising",
+      "Main Gate Branding",
+      "Society Kiosk Activities",
+      "Society Event Sponsorship"
     ]
   },
   "heroSlides": [
@@ -138,10 +138,10 @@
     "items": [
       {
         "title": "Digital Assets",
-        "description": "WhatsApp group campaigns, society newsletter placements, and targeted community announcements."
+        "description": "WhatsApp group campaigns and targeted community announcements."
       },
       {
-        "title": "Kiosk / Canopy",
+        "title": "Society Kiosk Activities",
         "description": "On-ground engagement stalls to showcase products, demos, and interactive brand experiences."
       },
       {
@@ -149,15 +149,15 @@
         "description": "High-frequency residential visibility inside towers and high-footfall common movement zones."
       },
       {
-        "title": "Notice Board Sponsorship",
+        "title": "Notice Board Advertising",
         "description": "Persistent visibility on trusted community notice spaces where residents routinely engage."
       },
       {
-        "title": "Gate Entry/Exit Branding",
+        "title": "Main Gate Branding",
         "description": "Prime impact placements at key touchpoints for recurring household impressions."
       },
       {
-        "title": "Event Sponsorship",
+        "title": "Society Event Sponsorship",
         "description": "Sponsor society celebrations and drive recall through contextual, community-first activations."
       }
     ]

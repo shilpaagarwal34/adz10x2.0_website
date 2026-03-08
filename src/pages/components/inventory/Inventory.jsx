@@ -15,11 +15,11 @@ const Inventory = () => {
 
   const iconMap = {
     "Digital Assets": FaBroadcastTower,
-    "Kiosk / Canopy": FaStore,
+    "Society Kiosk Activities": FaStore,
     "Lift Branding Panels": FaBuilding,
-    "Notice Board Sponsorship": FaClipboardList,
-    "Gate Entry/Exit Branding": FaDoorOpen,
-    "Event Sponsorship": FaCalendarAlt,
+    "Notice Board Advertising": FaClipboardList,
+    "Main Gate Branding": FaDoorOpen,
+    "Society Event Sponsorship": FaCalendarAlt,
   };
 
   return (

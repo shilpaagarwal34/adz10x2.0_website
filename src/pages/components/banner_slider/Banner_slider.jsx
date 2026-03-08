@@ -43,12 +43,12 @@ const Banner_slider = () => {
     return () => observer.disconnect();
   }, []);
   const platformIconMap = {
-    "WhatsApp Promotional Day": FaWhatsapp,
+    "WhatsApp Group Promotion": FaWhatsapp,
     "Lift Branding Panels": FaBuilding,
-    "Notice Board Sponsorship": FaBullhorn,
-    "Gate Entry/Exit Branding": FaDoorOpen,
-    "Society Kiosk": FaStore,
-    "Event Sponsorship": FaCalendarAlt,
+    "Notice Board Advertising": FaBullhorn,
+    "Main Gate Branding": FaDoorOpen,
+    "Society Kiosk Activities": FaStore,
+    "Society Event Sponsorship": FaCalendarAlt,
   };
 
   return (

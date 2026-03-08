@@ -20,7 +20,7 @@ export default function GetStartedBtn({ accountType = "default" }) {
       href={signupUrl}
       target="_blank"
       rel="noreferrer"
-      className="btn"
+      className="get_started_btn btn"
     >
       Get Started &nbsp; <img src={arrow_right} alt="" />
     </a>

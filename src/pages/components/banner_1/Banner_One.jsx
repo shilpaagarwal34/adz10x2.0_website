@@ -3,124 +3,266 @@ import data from "../../data.json";
 import GetStartedBtn from "../GetStartedBtn";
 import "./Banner_One.css";
 
-const ROTATION_DURATION_MS = 30000;
-const BOX_ANGLES = [210, 240, 270, 300, 330];
+const ROTATION_SPEED = 0.5;
+const ARC_START = 0;
+const ARC_END = 360;
+const SPACING = (ARC_END - ARC_START) / 5;
 
 const Banner_One = () => {
-  const { title, center_image, features } = data.banner_1;
-  const [rotation, setRotation] = useState(0);
-  const [arcRadius, setArcRadius] = useState(200);
-  const zoneRef = useRef(null);
+
+  const { title, features } = data.banner_1;
+
+  const [offset, setOffset] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const requestRef = useRef();
 
   useEffect(() => {
-    const start = Date.now();
-    let raf = 0;
-    const tick = () => {
-      const elapsed = Date.now() - start;
-      const r = (elapsed / ROTATION_DURATION_MS) * 360 % 360;
-      setRotation(r);
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, []);
 
-  useEffect(() => {
-    const measure = () => {
-      if (!zoneRef.current) return;
-      const rect = zoneRef.current.getBoundingClientRect();
-      const r = Math.min(rect.width / 2, rect.height);
-      setArcRadius(Math.max(100, Math.round(r * 0.82)));
+    const animate = () => {
+
+      if (!isPaused) {
+        setOffset(prev => (prev + ROTATION_SPEED) % 360);
+      }
+
+      requestRef.current = requestAnimationFrame(animate);
+
     };
-    const t = setTimeout(measure, 0);
-    const ro = new ResizeObserver(measure);
-    const el = zoneRef.current;
-    if (el) ro.observe(el);
-    window.addEventListener("resize", measure);
-    return () => {
-      clearTimeout(t);
-      ro.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, []);
+
+    requestRef.current = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(requestRef.current);
+
+  }, [isPaused]);
+
 
   return (
-    <section className="banner4 banner4_society section_padding" id="society">
-      <div className="container">
-        <h1 className="banner4_society_title gradient-text">{title}</h1>
-      </div>
+    <section className="banner4_society" id="society">
 
-      <div ref={zoneRef} className="banner4_society_semicircle_zone">
-        <div className="banner4_society_center_image_wrap" aria-hidden>
-          <img
-            src={center_image || "/society-center.png"}
-            alt="Society"
-            className="banner4_society_center_image"
-          />
-        </div>
-        <svg
-          className="banner4_society_semicircle_svg"
-          viewBox="0 0 800 400"
-          preserveAspectRatio="xMidYMax meet"
-          aria-hidden
-        >
-          <defs>
-            <linearGradient id="banner4ArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#01AA23" />
-              <stop offset="100%" stopColor="#0193FF" />
-            </linearGradient>
-          </defs>
-          <path
-            className="banner4_society_arc_path"
-            d="M 0 400 A 400 400 0 0 1 800 400"
-            fill="none"
-            stroke="url(#banner4ArcGrad)"
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-        </svg>
-        <div
-          className="banner4_society_semicircle_rotate"
-          style={{
-            transform: `rotate(${rotation}deg)`,
-            "--arc-r": `${arcRadius}px`,
-          }}
-        >
-          {features.slice(0, 5).map((item, index) => {
-            const angle = BOX_ANGLES[index];
-            const counterRotate = -(rotation + angle);
-            return (
+<div className="container">
+  <h1
+    className="banner4_society_title gradient-text"
+    style={{
+      WebkitTextStroke: "1px rgba(255,255,255,0.85)",
+      textShadow: "0 2px 6px rgba(0,0,0,0.25)",
+      fontWeight:900
+    }}
+  >
+    {title}
+  </h1>
+</div>
+
+
+      <div className="banner4_society_semicircle_zone">
+
+        {/* Moving Boxes */}
+
+        <div className="banner4_society_items_container">
+
+          {features.slice(0,5).map((item,index)=>{
+
+            const angle = ARC_START + index * SPACING + offset;
+
+            return(
+
               <div
                 key={index}
                 className="banner4_society_semicircle_box"
                 style={{
-                  "--angle": `${angle}deg`,
+                  "--angle": `${angle}deg`
                 }}
               >
-                <div
-                  className="banner4_society_semicircle_box_inner"
-                  style={{ transform: `rotate(${counterRotate}deg)` }}
-                >
+
+                <div className="banner4_society_semicircle_box_inner">
+
                   <span className="banner4_society_circle_heading">
                     {item.heading}
                   </span>
+
                   <span className="banner4_society_circle_desc">
                     {item.description}
                   </span>
+
                 </div>
+
               </div>
+
             );
+
           })}
+
         </div>
+
       </div>
+
 
       <div className="container">
         <div className="banner4_society_cta">
-          <GetStartedBtn accountType="society" />
+          <GetStartedBtn accountType="society"/>
         </div>
       </div>
+
     </section>
   );
 };
 
 export default Banner_One;
+
+
+
+
+
+//-----------------ITSSS ALMOST PERFECT-------------------------
+// import React, { useState, useEffect, useRef } from "react";
+// import data from "../../data.json";
+// import GetStartedBtn from "../GetStartedBtn";
+// import "./Banner_One.css";
+
+// const ROTATION_SPEED = 0.09;
+// const ARC_START = 0;     // full circle start
+// const ARC_END = 360;     // full circle end
+// const SPACING = (ARC_END - ARC_START) / 5;
+
+// const Banner_One = () => {
+
+//   const { title, features } = data.banner_1;
+
+//   const [offset, setOffset] = useState(0);
+//   const [isPaused, setIsPaused] = useState(false);
+
+//   const requestRef = useRef();
+
+//   useEffect(() => {
+
+//     const animate = () => {
+
+//       if (!isPaused) {
+//         setOffset(prev => (prev + ROTATION_SPEED) % 360);
+//       }
+
+//       requestRef.current = requestAnimationFrame(animate);
+//     };
+
+//     requestRef.current = requestAnimationFrame(animate);
+
+//     return () => cancelAnimationFrame(requestRef.current);
+
+//   }, [isPaused]);
+
+
+//   return (
+//     <section className="banner4_society" id="society">
+
+//       <div className="container">
+//         <h1 className="banner4_society_title gradient-text">
+//           {title}
+//         </h1>
+//       </div>
+
+//       <div
+//         className="banner4_society_semicircle_zone"
+//         onMouseEnter={() => setIsPaused(true)}
+//         onMouseLeave={() => setIsPaused(false)}
+//       >
+
+//         {/* Center Image */}
+
+//         <div className="banner4_society_center_image_wrap">
+//           <img
+//             src="/my_image.jpg"
+//             alt="High Rise Building"
+//             className="banner4_society_center_image"
+//           />
+//         </div>
+
+
+//         {/* SVG */}
+
+//         <svg className="banner4_society_semicircle_svg" viewBox="0 0 800 400">
+
+//           <defs>
+//             <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+//               <stop offset="0%" stopColor="rgba(1,170,35,0.2)" />
+//               <stop offset="100%" stopColor="rgba(1,147,255,0.2)" />
+//             </linearGradient>
+//           </defs>
+
+//           {features.slice(0,5).map((_, index) => {
+
+//             const angle = ARC_START + index * SPACING + offset;
+
+//             const rad = (angle * Math.PI) / 180;
+
+//             const x2 = 400 + 350 * Math.cos(rad);
+//             const y2 = 400 + 350 * Math.sin(rad);
+
+//             return (
+
+//               <path
+//                 key={index}
+//                 d={`M 400 330 Q 400 360 ${x2} ${y2}`}
+//                 stroke="url(#lineGrad)"
+//                 strokeWidth="2"
+//                 fill="none"
+//                 className="wavy_connector"
+//               />
+
+//             );
+
+//           })}
+
+//         </svg>
+
+
+//         {/* Moving Boxes */}
+
+//         <div className="banner4_society_items_container">
+
+//           {features.slice(0,5).map((item,index)=>{
+
+//             const angle = ARC_START + index * SPACING + offset;
+
+//             return(
+
+//               <div
+//                 key={index}
+//                 className="banner4_society_semicircle_box"
+//                 style={{
+//                   "--angle": `${angle}deg`
+//                 }}
+//               >
+
+//                 <div className="banner4_society_semicircle_box_inner">
+
+//                   <span className="banner4_society_circle_heading">
+//                     {item.heading}
+//                   </span>
+
+//                   <span className="banner4_society_circle_desc">
+//                     {item.description}
+//                   </span>
+
+//                 </div>
+
+//               </div>
+
+//             );
+
+//           })}
+
+//         </div>
+
+//       </div>
+
+
+//       <div className="container">
+//         <div className="banner4_society_cta">
+//           <GetStartedBtn accountType="society"/>
+//         </div>
+//       </div>
+
+//     </section>
+//   );
+// };
+
+// export default Banner_One;

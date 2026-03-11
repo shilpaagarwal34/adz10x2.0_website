@@ -9,7 +9,6 @@ const ARC_END = 360;
 const SPACING = (ARC_END - ARC_START) / 5;
 
 const Banner_One = () => {
-
   const { title, features } = data.banner_1;
 
   const [offset, setOffset] = useState(0);
@@ -18,63 +17,115 @@ const Banner_One = () => {
   const requestRef = useRef();
 
   useEffect(() => {
-
     const animate = () => {
-
       if (!isPaused) {
-        setOffset(prev => (prev + ROTATION_SPEED) % 360);
+        setOffset((prev) => (prev + ROTATION_SPEED) % 360);
       }
 
       requestRef.current = requestAnimationFrame(animate);
-
     };
 
     requestRef.current = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(requestRef.current);
-
   }, [isPaused]);
-
 
   return (
     <section className="banner4_society" id="society">
-
-<div className="container">
-  <h1
-    className="banner4_society_title gradient-text"
-    style={{
-      WebkitTextStroke: "1px rgba(255,255,255,0.85)",
-      textShadow: "0 2px 6px rgba(0,0,0,0.25)",
-      fontWeight:900
-    }}
-  >
-    {title}
-  </h1>
-</div>
-
+      <div className="container">
+        <h1
+          className="banner4_society_title gradient-text"
+          style={{
+            WebkitTextStroke: "1px rgba(255,255,255,0.85)",
+            textShadow: "0 2px 6px rgba(0,0,0,0.25)",
+            fontWeight: 900,
+          }}
+        >
+          {title}
+        </h1>
+      </div>
 
       <div className="banner4_society_semicircle_zone">
+        {/* SEMICIRCLE CONNECTOR LINE */}
 
+        {/* <svg
+          className="banner4_society_semicircle_svg"
+          viewBox="0 0 1000 500"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <linearGradient
+              id="orbitGradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stopColor="rgba(1,170,35,0.9)" />
+              <stop offset="100%" stopColor="rgba(1,147,255,0.9)" />
+            </linearGradient>
+          </defs>
+
+          <path
+            d="M50 450 A450 450 0 0 1 950 450"
+            stroke="url(#orbitGradient)"
+            strokeWidth="4"
+            fill="none"
+            strokeLinecap="round"
+          />
+        </svg> */}
+
+        {/* CENTER IMAGE */}
+        <div className="banner4_society_center_image">
+          <img src="/building_behind_wheel.jpg" alt="center" />
+        </div>
+        <svg className="orbit_connectors" viewBox="0 0 1000 600">
+          {features.slice(0, 5).map((item, index) => {
+            const angle =
+              (ARC_START + index * SPACING + offset) * (Math.PI / 180);
+            const radius = 300;
+
+            const centerX = 500;
+            const centerY = 350;
+
+            const x = centerX + radius * Math.sin(angle);
+            const y = centerY - radius * Math.cos(angle);
+
+            return (
+              <line
+                key={index}
+                x1={centerX}
+                y1={centerY}
+                x2={x}
+                y2={y}
+                stroke="url(#orbitGradient)"
+                strokeWidth="3"
+              />
+            );
+          })}
+
+          <defs>
+            <linearGradient id="orbitGradient">
+              <stop offset="0%" stopColor="#00ff9c" />
+              <stop offset="100%" stopColor="#00bfff" />
+            </linearGradient>
+          </defs>
+        </svg>
         {/* Moving Boxes */}
 
         <div className="banner4_society_items_container">
-
-          {features.slice(0,5).map((item,index)=>{
-
+          {features.slice(0, 5).map((item, index) => {
             const angle = ARC_START + index * SPACING + offset;
 
-            return(
-
+            return (
               <div
                 key={index}
                 className="banner4_society_semicircle_box"
                 style={{
-                  "--angle": `${angle}deg`
+                  "--angle": `${angle}deg`,
                 }}
               >
-
                 <div className="banner4_society_semicircle_box_inner">
-
                   <span className="banner4_society_circle_heading">
                     {item.heading}
                   </span>
@@ -82,35 +133,23 @@ const Banner_One = () => {
                   <span className="banner4_society_circle_desc">
                     {item.description}
                   </span>
-
                 </div>
-
               </div>
-
             );
-
           })}
-
         </div>
-
       </div>
-
 
       <div className="container">
         <div className="banner4_society_cta">
-          <GetStartedBtn accountType="society"/>
+          <GetStartedBtn accountType="society" />
         </div>
       </div>
-
     </section>
   );
 };
 
 export default Banner_One;
-
-
-
-
 
 //-----------------ITSSS ALMOST PERFECT-------------------------
 // import React, { useState, useEffect, useRef } from "react";
@@ -149,7 +188,6 @@ export default Banner_One;
 
 //   }, [isPaused]);
 
-
 //   return (
 //     <section className="banner4_society" id="society">
 
@@ -174,7 +212,6 @@ export default Banner_One;
 //             className="banner4_society_center_image"
 //           />
 //         </div>
-
 
 //         {/* SVG */}
 
@@ -212,7 +249,6 @@ export default Banner_One;
 //           })}
 
 //         </svg>
-
 
 //         {/* Moving Boxes */}
 
@@ -253,7 +289,6 @@ export default Banner_One;
 //         </div>
 
 //       </div>
-
 
 //       <div className="container">
 //         <div className="banner4_society_cta">

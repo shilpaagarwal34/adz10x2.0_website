@@ -260,3 +260,105 @@
   transform: rotate(25deg) translateX(100%);
 
 }
+
+/* ========================= */
+/* CENTER IMAGE */
+/* ========================= */
+
+.banner4_society_center_image {
+
+  position: absolute;
+
+  left: 50%;
+  bottom: 210px;
+
+  transform: translateX(-50%);
+
+  width: 160px;
+  height: 160px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  z-index: 3;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+
+  border: 6px solid rgba(255,255,255,0.6);
+
+  backdrop-filter: blur(6px);
+}
+
+.banner4_society_center_image img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+}
+
+.orbit_connectors{
+
+  position:absolute;
+  top:0;
+  left:0;
+
+  width:100%;
+  height:100%;
+
+  pointer-events:none;
+
+  z-index:2;
+
+}
+/* ========================= */
+/* CONNECTOR LINE */
+/* ========================= */
+
+/* CONNECTOR FROM CENTER TO CARD */
+
+/* CONNECTOR FROM CENTER IMAGE */
+
+/* radial connector from center to card */
+
+/* .banner4_society_semicircle_box::before{
+
+  content:"";
+
+  position:absolute;
+
+  left:50%;
+  bottom:0;
+
+  width:3px;
+  height:350px;
+
+  transform:translateX(-50%);
+
+  background:linear-gradient(
+    rgba(1,170,35,0.9),
+    rgba(1,147,255,0.9)
+  );
+
+  border-radius:3px;
+
+  z-index:1;
+
+} */
+/* .banner4_society_semicircle_svg {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+} */

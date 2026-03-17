@@ -217,6 +217,149 @@ box-shadow:0 40px 70px rgba(0,0,0,0.35);
 z-index:10;
 }
 
+/* ================================= */
+/* Tablets (≤1024px) */ -----------------------RESPONSIVE ADJUSTMENTS-------------------
+/* ================================= */
+
+@media (max-width:1024px){
+
+.inventory_path_shell{
+overflow-x:auto;
+padding-bottom:20px;
+}
+
+.inventory_path_grid{
+grid-template-columns:repeat(6,260px);
+gap:20px;
+}
+
+.inventory_path_node{
+min-height:160px;
+}
+
+}
+
+
+/* ================================= */
+/* Phones & small tablets (≤768px) */
+/* ================================= */
+
+@media (max-width:768px){
+
+/* change to horizontal scroll timeline */
+
+.inventory_path_shell{
+overflow-x:auto;
+padding-bottom:30px;
+}
+
+.inventory_path_grid{
+grid-template-columns:repeat(6,240px);
+gap:16px;
+}
+
+/* reduce zigzag distance */
+
+.inventory_path_node.up{
+transform:translateY(-18px);
+}
+
+.inventory_path_node.down{
+transform:translateY(18px);
+}
+
+.inventory_path_node:hover{
+transform:translateZ(30px) scale(1.05);
+}
+
+.inventory_path_node h3{
+font-size:18px;
+}
+
+.inventory_path_node p{
+font-size:13px;
+}
+
+}
+
+
+/* ================================= */
+/* Smartphones (≤480px) */
+/* ================================= */
+
+@media (max-width:480px){
+
+/* convert layout to vertical stack */
+
+.inventory_path_line{
+display:none;
+}
+
+.inventory_path_grid{
+grid-template-columns:1fr;
+gap:18px;
+}
+
+/* remove zigzag */
+
+.inventory_path_node.up,
+.inventory_path_node.down{
+transform:none;
+}
+
+.inventory_path_node::before,
+.inventory_path_node::after{
+display:none;
+}
+
+.inventory_path_node{
+padding:16px;
+min-height:auto;
+}
+
+.inventory_icon{
+width:34px;
+height:34px;
+font-size:14px;
+}
+
+.inventory_path_node h3{
+font-size:17px;
+}
+
+.inventory_path_node p{
+font-size:13px;
+}
+
+}
+
+
+/* ================================= */
+/* Small phones (≤360px) */
+/* ================================= */
+
+@media (max-width:360px){
+
+.inventory_path_node{
+padding:14px;
+}
+
+.inventory_path_node h3{
+font-size:16px;
+}
+
+.inventory_path_node p{
+font-size:12px;
+}
+
+.inventory_icon{
+width:30px;
+height:30px;
+font-size:13px;
+}
+
+}
+
       `}</style>
 
       <section className="inventory_section section_padding">

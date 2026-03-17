@@ -47,39 +47,12 @@ const Banner_One = () => {
 
       <div className="banner4_society_semicircle_zone">
         {/* SEMICIRCLE CONNECTOR LINE */}
-
-        {/* <svg
-          className="banner4_society_semicircle_svg"
-          viewBox="0 0 1000 500"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient
-              id="orbitGradient"
-              x1="0%"
-              y1="0%"
-              x2="100%"
-              y2="0%"
-            >
-              <stop offset="0%" stopColor="rgba(1,170,35,0.9)" />
-              <stop offset="100%" stopColor="rgba(1,147,255,0.9)" />
-            </linearGradient>
-          </defs>
-
-          <path
-            d="M50 450 A450 450 0 0 1 950 450"
-            stroke="url(#orbitGradient)"
-            strokeWidth="4"
-            fill="none"
-            strokeLinecap="round"
-          />
-        </svg> */}
-
+          <div className="banner4_society_arc"></div>
         {/* CENTER IMAGE */}
         <div className="banner4_society_center_image">
           <img src="/building_behind_wheel.jpg" alt="center" />
         </div>
-        <svg className="orbit_connectors" viewBox="0 0 1000 600">
+        {/* <svg className="orbit_connectors" viewBox="0 0 1000 600">
           {features.slice(0, 5).map((item, index) => {
             const angle =
               (ARC_START + index * SPACING + offset) * (Math.PI / 180);
@@ -110,7 +83,7 @@ const Banner_One = () => {
               <stop offset="100%" stopColor="#00bfff" />
             </linearGradient>
           </defs>
-        </svg>
+        </svg> */}
         {/* Moving Boxes */}
 
         <div className="banner4_society_items_container">

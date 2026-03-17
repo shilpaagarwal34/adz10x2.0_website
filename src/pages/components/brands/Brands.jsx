@@ -41,6 +41,96 @@ const Brands = () => {
           color: #fff;
           box-shadow: 0 20px 40px rgba(0,0,0,0.25);
         }
+
+
+        /* -----------------------RESPONSIVE ADJUSTMENTS------------------- */
+        /* ============================= */
+/* Tablets (≤1024px) */
+/* ============================= */
+
+@media (max-width:1024px){
+
+.brands_grid{
+gap:10px;
+}
+
+.brand_chip{
+padding:10px 18px;
+font-size:15px;
+}
+
+}
+
+
+/* ============================= */
+/* Phones (≤768px) */
+/* ============================= */
+
+@media (max-width:768px){
+
+.brands_grid{
+gap:10px;
+}
+
+.brand_chip{
+padding:10px 16px;
+font-size:14px;
+border-radius:12px;
+}
+
+/* reduce hover scale so chips don't collide */
+
+.brand_chip:hover{
+transform:scale(1.08);
+}
+
+}
+
+
+/* ============================= */
+/* Small Smartphones (≤480px) */
+/* ============================= */
+
+@media (max-width:480px){
+
+/* horizontal scroll style */
+
+.brands_grid{
+flex-wrap:nowrap;
+overflow-x:auto;
+padding-bottom:10px;
+scroll-snap-type:x mandatory;
+}
+
+.brand_chip{
+flex:0 0 auto;
+padding:8px 14px;
+font-size:13px;
+border-radius:10px;
+scroll-snap-align:start;
+}
+
+/* remove aggressive hover for touch devices */
+
+.brand_chip:hover{
+transform:none;
+}
+
+}
+
+
+/* ============================= */
+/* Very small phones (≤360px) */
+/* ============================= */
+
+@media (max-width:360px){
+
+.brand_chip{
+padding:7px 12px;
+font-size:12px;
+}
+
+}
       `}</style>
     </section>
   );

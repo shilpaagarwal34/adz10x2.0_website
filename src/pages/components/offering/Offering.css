@@ -269,3 +269,221 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* -----------------------RESPONSIVE ADJUSTMENTS------------------- */
+/* ============================= */
+/* Tablets (iPad / small laptop) */ 
+/* ============================= */
+
+@media (max-width: 1024px) {
+
+  .offering_header {
+    margin-bottom: 2rem;
+  }
+
+  .offering_title {
+    font-size: 2rem;
+  }
+
+  .offering_subtitle {
+    font-size: 1rem;
+  }
+
+  .offering_cards_grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .offering_card {
+    padding: 1.6rem;
+  }
+
+  .offering_card_icon {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+  }
+
+  .offering_stepper_card {
+    width: 180px;
+  }
+
+}
+
+
+/* ============================= */
+/* Large Phones (iPhone etc) */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+  .offering_header {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .offering_title {
+    font-size: 1.7rem;
+  }
+
+  .offering_subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* ---------- MARQUEE FIX ---------- */
+
+  /* show only one row on phones */
+  .offering_marquee_row.reverse {
+    display: none;
+  }
+
+  .offering_marquee_chip {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    margin: 0 8px;
+  }
+
+  .offering_marquee_track {
+    animation-duration: 14s;
+  }
+
+  /* ---------- STEPPER ---------- */
+
+  .offering_stepper_track {
+    justify-content: flex-start;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 0.8rem;
+  }
+
+  .offering_stepper_card {
+    min-width: 140px;
+    padding: 1rem;
+  }
+
+  .offering_stepper_card_icon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .offering_stepper_card_heading {
+    font-size: 0.9rem;
+  }
+
+  /* ---------- CARDS ---------- */
+
+  .offering_cards_grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .offering_card {
+    padding: 1.5rem;
+  }
+
+  .offering_card_icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+
+}
+
+
+/* ============================= */
+/* Standard Smartphones */
+/* ============================= */
+
+@media (max-width: 480px) {
+
+  .offering_accent_bar {
+    height: 36px;
+  }
+
+  .offering_title {
+    font-size: 1.5rem;
+  }
+
+  .offering_subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* marquee smaller chips */
+
+  .offering_marquee_chip {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+    border-radius: 12px;
+  }
+
+  .offering_stepper_wrap {
+    margin-bottom: 2rem;
+  }
+
+  .offering_stepper_card {
+    min-width: 130px;
+    padding: 0.9rem;
+    border-radius: 14px;
+  }
+
+  .offering_stepper_card_icon {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .offering_stepper_card_heading {
+    font-size: 0.85rem;
+  }
+
+  .offering_stepper_card_time {
+    font-size: 0.7rem;
+  }
+
+  .offering_card {
+    padding: 1.3rem;
+    border-radius: 18px;
+  }
+
+  .offering_card h3 {
+    font-size: 1.1rem;
+  }
+
+  .offering_card p {
+    font-size: 0.9rem;
+  }
+
+}
+
+
+/* ============================= */
+/* Small phones (iPhone SE etc) */
+/* ============================= */
+
+@media (max-width: 360px) {
+
+  .offering_title {
+    font-size: 1.35rem;
+  }
+
+  .offering_subtitle {
+    font-size: 0.85rem;
+  }
+
+  .offering_stepper_card {
+    min-width: 120px;
+  }
+
+  .offering_card {
+    padding: 1.1rem;
+  }
+
+  .offering_card_icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+}

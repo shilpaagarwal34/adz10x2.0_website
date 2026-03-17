@@ -75,7 +75,7 @@
 
   transform:
     rotate(var(--angle))
-    translateY(-350px)
+    translateY(-345px)
     rotate(calc(-1 * var(--angle)));
 
   transition: opacity 0.4s ease;
@@ -92,6 +92,8 @@
   );
 
   backdrop-filter: blur(5px);
+  width:280px;
+  /* height: 100px; */
 
   color: white;
 
@@ -299,7 +301,40 @@
 
 }
 
-.orbit_connectors{
+
+/* ========================= */
+/* SEMICIRCLE ARC BACKGROUND */
+/* ========================= */
+
+.banner4_society_arc{
+
+  position:absolute;
+  left:51.2%;
+  bottom:100px;
+
+  transform:translateX(-50%);
+
+  width:2000px;
+  height:550px;
+
+  border-radius:700px 700px 0 0;
+
+  background:
+  radial-gradient(
+    circle at center bottom,
+    transparent 440px,
+    #00ff9c 444px,
+    #00bfff 450px,
+    transparent 454px
+  );
+
+  filter: drop-shadow(0 0 0 #00ff9c);
+
+  z-index:1;
+
+}
+
+/* .orbit_connectors{
 
   position:absolute;
   top:0;
@@ -312,7 +347,7 @@
 
   z-index:2;
 
-}
+} */
 /* ========================= */
 /* CONNECTOR LINE */
 /* ========================= */

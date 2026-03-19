@@ -346,6 +346,7 @@ font-size:13px;
 
 .inventory_path_node{
 padding:14px;
+width:320px;
 }
 
 .inventory_path_node h3{
@@ -362,6 +363,9 @@ height:30px;
 font-size:13px;
 }
 
+.inventory_path_shell{
+  overflow-x:hidden;
+}
 }
 
       `}</style>

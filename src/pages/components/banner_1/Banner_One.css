@@ -276,8 +276,8 @@
 
   transform: translateX(-50%);
 
-  width: 200px;
-  height: 200px;
+  width: 215px;
+  height: 215px;
 
   border-radius: 50%;
 
@@ -334,6 +334,171 @@
 
 }
 
+
+
+
+
+/* ---------------------------RESPONSIVE--------------------------- */
+/* ========================================= */
+/* 🔥 FULL MOBILE OPTIMIZATION (PERFECT UI) */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+  /* SECTION PADDING */
+  .banner4_society {
+    padding: 40px 0;
+  }
+
+  /* ================= TITLE ================= */
+  .banner4_society_title {
+    font-size: 2.2rem !important;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  /* ================= ZONE ================= */
+  .banner4_society_semicircle_zone {
+    padding-bottom: 75%;
+    min-height: 320px;
+  }
+
+  /* ================= ARC (VERY IMPORTANT) ================= */
+  .banner4_society_arc {
+    width: 130%;
+    height: 300px;
+    bottom: 70px;
+
+    border-radius: 300px 300px 0 0;
+
+    background:
+    radial-gradient(
+      circle at center bottom,
+      transparent 220px,
+      #00ff9c 224px,
+      #00bfff 230px,
+      transparent 235px
+    );
+  }
+
+  /* ================= CENTER IMAGE ================= */
+  .banner4_society_center_image {
+    width: 140px;
+    height: 140px;
+    bottom: 130px;
+    border-width: 4px;
+  }
+
+  /* ================= CARDS (MAIN FIX) ================= */
+  .banner4_society_semicircle_box {
+    width: 150px;
+    margin-left: -75px;
+    bottom: 120px;
+
+    transform:
+      rotate(var(--angle))
+      translateY(-190px)
+      rotate(calc(-1 * var(--angle)));
+  }
+
+  .banner4_society_semicircle_box_inner {
+    width: 150px;
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+
+  /* ================= TEXT ================= */
+  .banner4_society_circle_heading {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  .banner4_society_circle_desc {
+    font-size: 0.65rem;
+    line-height: 1.3;
+  }
+
+  /* ================= BUTTON ================= */
+  .get_started_btn {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+
+  .banner4_society_cta {
+    margin-top: -120px;
+  }
+}
+
+
+/* ========================================= */
+/* 🔥 EXTRA SMALL DEVICES (PHONES) */
+/* ========================================= */
+
+@media (max-width: 480px) {
+
+  /* TITLE */
+  .banner4_society_title {
+    font-size: 2.5rem !important;
+  }
+
+  /* ARC */
+  .banner4_society_arc {
+    height: 240px;
+    bottom: 60px;
+
+    background:
+    radial-gradient(
+      circle at center bottom,
+      transparent 170px,
+      #00ff9c 174px,
+      #00bfff 180px,
+      transparent 185px
+    );
+  }
+
+  /* IMAGE */
+  .banner4_society_center_image {
+    width: 110px;
+    height: 110px;
+    bottom: 110px;
+  }
+
+  /* CARDS */
+  .banner4_society_semicircle_box {
+    width: 130px;
+    margin-left: -65px;
+    bottom: 105px;
+
+    transform:
+      rotate(var(--angle))
+      translateY(-129px)
+      rotate(calc(-1 * var(--angle)));
+  }
+
+  .banner4_society_semicircle_box_inner {
+    width: 130px;
+    padding: 0.6rem;
+  }
+
+  /* TEXT */
+  .banner4_society_circle_heading {
+    font-size: 0.6rem;
+  }
+
+  .banner4_society_circle_desc {
+    font-size: 0.55rem;
+  }
+
+  /* BUTTON */
+  .get_started_btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+
+  .banner4_society_cta {
+    margin-top: -100px;
+  }
+}
 /* .orbit_connectors{
 
   position:absolute;

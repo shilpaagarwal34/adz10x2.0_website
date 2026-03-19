@@ -6,7 +6,7 @@ import "./Banner_One.css";
 const ROTATION_SPEED = 0.5;
 const ARC_START = 0;
 const ARC_END = 360;
-const SPACING = (ARC_END - ARC_START) / 5;
+const SPACING = (ARC_END - ARC_START) /5;
 
 const Banner_One = () => {
   const { title, features } = data.banner_1;
@@ -39,6 +39,7 @@ const Banner_One = () => {
             WebkitTextStroke: "1px rgba(255,255,255,0.85)",
             textShadow: "0 2px 6px rgba(0,0,0,0.25)",
             fontWeight: 900,
+            fontSize: "4rem",
           }}
         >
           {title}

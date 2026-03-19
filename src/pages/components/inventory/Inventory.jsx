@@ -315,6 +315,7 @@ display:none;
 .inventory_path_node{
 padding:16px;
 min-height:auto;
+width:400px;
 }
 
 .inventory_icon{
@@ -331,6 +332,9 @@ font-size:17px;
 font-size:13px;
 }
 
+.inventory_path_shell{
+  overflow-x:hidden;
+}
 }
 
 

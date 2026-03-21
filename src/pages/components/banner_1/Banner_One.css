@@ -499,66 +499,80 @@
     margin-top: -100px;
   }
 }
-/* .orbit_connectors{
 
-  position:absolute;
-  top:0;
-  left:0;
 
-  width:100%;
-  height:100%;
+/* ========================================= */
+/* 🔥 ULTRA SMALL DEVICES (≤360px) */
+/* ========================================= */
 
-  pointer-events:none;
+@media (max-width: 360px) {
 
-  z-index:2;
+  /* TITLE */
+  .banner4_society_title {
+    font-size: 2rem !important;
+    line-height: 1.2;
+  }
 
-} */
-/* ========================= */
-/* CONNECTOR LINE */
-/* ========================= */
+  /* ARC (scaled down properly) */
+  .banner4_society_arc {
+    height: 200px;
+    bottom: 50px;
 
-/* CONNECTOR FROM CENTER TO CARD */
+    background:
+    radial-gradient(
+      circle at center bottom,
+      transparent 140px,
+      #00ff9c 144px,
+      #00bfff 150px,
+      transparent 155px
+    );
+  }
 
-/* CONNECTOR FROM CENTER IMAGE */
+  /* CENTER IMAGE */
+  .banner4_society_center_image {
+    width: 90px;
+    height: 90px;
+    bottom: 90px;
+    border-width: 3px;
+  }
 
-/* radial connector from center to card */
+  /* CARDS (perfect arc alignment) */
+  .banner4_society_semicircle_box {
+    width: 110px;
+    margin-left: -55px;
+    bottom: 85px;
+    /* transition: transform 0.05s linear;  */
 
-/* .banner4_society_semicircle_box::before{
+    transform:
+      rotate(var(--angle))
+      translateY(-105px) /* 🔥 synced with arc */
+      rotate(calc(-1 * var(--angle)));
+  }
 
-  content:"";
+  .banner4_society_semicircle_box_inner {
+    width: 110px;
+    padding: 0.5rem;
+    border-radius: 10px;
+  }
 
-  position:absolute;
+  /* TEXT */
+  .banner4_society_circle_heading {
+    font-size: 0.55rem;
+    letter-spacing: 0.3px;
+  }
 
-  left:50%;
-  bottom:0;
+  .banner4_society_circle_desc {
+    font-size: 0.5rem;
+    line-height: 1.2;
+  }
 
-  width:3px;
-  height:350px;
+  /* BUTTON */
+  .get_started_btn {
+    padding: 7px 16px;
+    font-size: 12px;
+  }
 
-  transform:translateX(-50%);
-
-  background:linear-gradient(
-    rgba(1,170,35,0.9),
-    rgba(1,147,255,0.9)
-  );
-
-  border-radius:3px;
-
-  z-index:1;
-
-} */
-/* .banner4_society_semicircle_svg {
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  pointer-events: none;
-
-  z-index: 1;
-
-} */
+  .banner4_society_cta {
+    margin-top: -80px;
+  }
+}

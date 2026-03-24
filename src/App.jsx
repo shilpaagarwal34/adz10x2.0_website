@@ -1,6 +1,6 @@
 import React from "react";
 import Index from "./pages/Index";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Privacy_Policy from "./pages/Privacy_Policy.jsx";
 import Navbar from "./pages/components/navbar/Navbar.jsx";
 import Footer from "./pages/components/footer/Footer.jsx";
@@ -14,9 +14,12 @@ import ShippingPolicy from "./pages/components/ShippingPolicy.jsx";
 import Disclaimer from "./pages/components/Disclaimer.jsx";
 import SupportChatbot from "./pages/components/chatbot/SupportChatbot.jsx";
 
-const App = () => {
+const AppContent = () => {
+  const location = useLocation();
+  const showChatbot = location.pathname !== "/";
+
   return (
-    <Router>
+    <>
       <Navbar />
       <ScrollToTop />
       <Routes>
@@ -31,7 +34,15 @@ const App = () => {
         <Route path="/contact" element={<Contact />} /> 
       </Routes>
       <Footer />
-      <SupportChatbot />
+      {showChatbot && <SupportChatbot />}
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>
+      <AppContent />
     </Router>
   );
 };

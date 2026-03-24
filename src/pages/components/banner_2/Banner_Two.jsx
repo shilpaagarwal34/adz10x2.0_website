@@ -485,7 +485,7 @@ const Banner_Two = () => {
 
           /* only 4 small cards */
           .card3, .card4, .card5, .card6 { display:none; }
-          .card1 { top:40%; left:-50%; }
+          .card1 { top:40%; left:-55%; }
           .card2 { top:5%; right:-2%; }
           .card7 { bottom:-10%; }
 
@@ -575,8 +575,8 @@ const Banner_Two = () => {
 
                 {/* ── 5 STAT CHIPS ── */}
                 <div className="stat_chip chip_green chip_tl">
-                  <span className="chip_val">2.4M</span>
-                  <span className="chip_lbl">Total Reach</span>
+                  <span className="chip_val">10X</span>
+                  <span className="chip_lbl">Wide Reach</span>
                 </div>
 
                 <div className="stat_chip chip_blue chip_tr">
@@ -585,18 +585,18 @@ const Banner_Two = () => {
                 </div>
 
                 <div className="stat_chip chip_orange chip_ml">
-                  <span className="chip_val">50K+</span>
+                  <span className="chip_val">Trusted</span>
                   <span className="chip_lbl">Active Brands</span>
                 </div>
 
                 <div className="stat_chip chip_teal chip_br">
-                  <span className="chip_val">$4.2M</span>
-                  <span className="chip_lbl">Paid Out</span>
+                  <span className="chip_val">High</span>
+                  <span className="chip_lbl">Society Network</span>
                 </div>
 
                 <div className="stat_chip chip_purple chip_bc">
-                  <span className="chip_val">3.8×</span>
-                  <span className="chip_lbl">Avg ROI</span>
+                  <span className="chip_val">Fast</span>
+                  <span className="chip_lbl">PACED</span>
                 </div>
 
                 {/* 3D mockup */}
@@ -616,16 +616,16 @@ const Banner_Two = () => {
                   </div>
 
                   <div className="dashboard_layer small_card card1">
-                    <div className="sc_icon">🚀</div>
-                    <span>10X Reach</span>
+                    <div className="sc_icon">✅</div>
+                    <span>Verified Audience</span>
                   </div>
                   <div className="dashboard_layer small_card card2">
-                    <div className="sc_icon">✅</div>
-                    <span>Verified Users</span>
+                    <div className="sc_icon">🚀</div>
+                    <span>Action Focused</span>
                   </div>
                   <div className="dashboard_layer small_card card3">
                     <div className="sc_icon">💰</div>
-                    <span>Instant Payouts</span>
+                    <span>Secure Payments</span>
                   </div>
                   <div className="dashboard_layer small_card card4">
                     <div className="sc_icon">📊</div>
@@ -633,15 +633,15 @@ const Banner_Two = () => {
                   </div>
                   <div className="dashboard_layer small_card card5">
                     <div className="sc_icon">🎯</div>
-                    <span>Smart Targeting</span>
+                    <span>Hyperlocal Targeting</span>
                   </div>
                   <div className="dashboard_layer small_card card6">
                     <div className="sc_icon">🔒</div>
-                    <span>Secure Payments</span>
+                    <span>Strong Recall</span>
                   </div>
                   <div className="dashboard_layer small_card card7">
                     <div className="sc_icon">⚡</div>
-                    <span>Real-Time Bids</span>
+                    <span>Flexible Ad Formats</span>
                   </div>
                 </div>
               </div>

@@ -454,21 +454,7 @@ const About = () => {
           .afd_chip { padding:6px 10px; }
           .afd_chip .cv { font-size:12px; }
         }
-        @media (max-width:360px) {
-          .afd_wrap { height:230px; }
-          .afd_grid { width:195px; height:195px; }
-          .center_card { width:62px; padding:8px 6px; border-radius:18px; }
-          .center_card h5 { font-size:8px; letter-spacing:0.5px; }
-          .center_icon { font-size:15px; margin-bottom:3px; }
-          .sat_card { width:52px; padding:6px 5px; border-radius:12px; }
-          .sat_icon { width:20px;height:20px;font-size:10px;border-radius:6px; }
-          .sat_title { font-size:7.5px; }
-          .nd_bottom,.nd_left { display:none; }
-          .chip_b,.chip_c,.chip_d,.chip_e { display:none; }
-          .chip_a { padding:5px 9px; }
-          .chip_a .cv { font-size:11px; }
-          .chip_a .cl { font-size:7px; }
-        }
+
       `}</style>
 
       <section className="about_content section_padding" id="about">

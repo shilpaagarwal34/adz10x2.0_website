@@ -1,7 +1,7 @@
 {
   "hero_video": {
-    "title": "A Walk Through Society. Ads At Every High-Impact Touchpoint.",
-    "description": "Show your brand exactly where residents engage every day. From entry gate to lift, notice board, kiosk, events and WhatsApp - one unified campaign with Adz10X.",
+    "title": "Where Brands Meet Residents - Every Single Day Effortlessly.",
+    "description": "Advertise inside residential societies in India across WhatsApp groups, lift panels, main gate branding, kiosks & society event sponsorships – all through one unified advertising platform.",
     "video_url": "/society-walkthrough.mp4",
     "poster_image": "/banner-1.png",
     "fallback_image": "/banner-1.png",
@@ -43,41 +43,55 @@
   ],
   "about_us": {
     "title": "About Us",
-    "description_one": "<p class=\"paragraph\">At <strong>Adz10x.com</strong> we're redefining how residential societies generate value from their digital presence. Our goal is simple yet powerful - <strong>to empower gated communities to monetize their visibility by connecting them with top brands for targeted, non-intrusive advertising opportunities.</strong></p>",
-    "description_two": "We believe societies deserve more than just maintenance collections - they deserve a share in the digital economy. By facilitating verified ad campaigns within residential ecosystems, we are creating a new income stream for societies while offering brands authentic, hyperlocal visibility.",
+
+    "description_one": "<strong>At Adz10X, we are redefining how residential societies and brands connect through hyperlocal advertising</strong>. <br/><br/>We enable brands to reach <strong>high-intent urban consumers where they live and engage daily</strong>—through a powerful mix of digital and on-ground touchpoints, including lift panels, main gate branding, kiosks, WhatsApp groups and society events.<br/><br/>",
+
+    "description_two": "At the same time, we empower <strong> gated communities to monetize their visibility</strong> by connecting them with relevant brands through non-intrusive, high-value advertising opportunities. <br/><br/>Our platform brings together <strong>targeting, execution, and performance tracking</strong>—allowing brands to run scalable campaigns while creating a new, sustainable income stream for residential societies.",
+
     "image": "/about-us-flow.png"
   },
   "offering": {
     "title": "Our Offerings",
-    "sub_heading": "Unlock high-impact marketing opportunities through hyper-targeted campaigns powered by WhatsApp group.",
+    "sub_heading": "Unlock high-impact hyperlocal advertising across residential societies through integrated digital and on-ground campaigns.",
     "flow_messages": [
-      { "type": "query", "text": "New campaign request for our society", "time": "05:41 pm" },
-      { "type": "response", "text": "Campaign approved and live!", "time": "05:42 pm" }
+      {
+        "type": "query",
+        "text": "New campaign request for our society",
+        "time": "05:41 pm"
+      },
+      {
+        "type": "response",
+        "text": "Campaign approved and live!",
+        "time": "05:42 pm"
+      }
     ],
     "flow_right_messages": [
       { "text": "Society earning in multiple folds!", "time": "05:43 pm" },
-      { "text": "Extra income without raising maintenance.", "time": "05:44 pm" }
+      {
+        "text": "Extra income without raising maintenance.",
+        "time": "05:44 pm"
+      }
     ],
     "offering_content": [
       {
         "icon": "leadgen",
         "heading": "Lead Generation Campaigns",
-        "description": "Capture high-intent leads by targeting the right audience and engaging them with compelling CTAs that drive action."
+        "description": "Generate high-intent leads from verified society residents through targeted campaigns across WhatsApp groups and on-ground activations."
       },
       {
         "icon": "branding",
         "heading": "Branding Campaigns",
-        "description": "Amplify your brand visibility and credibility through consistent, localized messaging. Perfect for product launches awareness drives, and reputation building."
+        "description": "Build strong brand visibility and trust within premium residential societies through consistent, high-frequency exposure across lifts, main gates, and community touchpoints."
       },
       {
         "icon": "surveys",
         "heading": "Surveys",
-        "description": "Gain deep insights into customer preferences and behaviour with short, high-response surveys—ideal for product feedback, market research, and sentiment analysis."
+        "description": "Capture real-time resident insights and feedback through high-response surveys across WhatsApp groups and society activations—ideal for market research and product validation."
       },
       {
         "icon": "hyperlocal",
         "heading": "Hyperlocal Promotions",
-        "description": "Reach residents in gated societies, townships, and local clusters with tailored offers and location-specific campaigns that resonate."
+        "description": "Drive hyperlocal sales by targeting residents in gated residential societies with location-specific offers and high-conversion campaigns."
       }
     ]
   },
@@ -112,23 +126,23 @@
     "features": [
       {
         "heading": "Direct Access to Hyper-Local Audiences",
-        "description": "Instantly reach gated communities with verified member engagement."
+        "description": "Reach high-intent audiences within gated residential communities."
       },
       {
-        "heading": "10X Higher Attention Span than Traditional Digital Ads",
-        "description": "WhatsApp is personal — your message gets seen, not skipped."
+        "heading": "10X Higher Attention Span than Traditional Advertising",
+        "description": "Engage residents across high-frequency touchpoints where attention is naturally higher."
       },
       {
-        "heading": "Boost Conversions with Personalized Campaigns",
-        "description": "Customize messaging per society for better relevance and higher ROI."
+        "heading": "Boost Conversions with Targeted Campaigns",
+        "description": "Deliver location-specific messaging for improved relevance and ROI."
       },
       {
         "heading": "High Trust = Higher Influence",
-        "description": "Your brand gains instant credibility by being featured on trusted society platforms."
+        "description": "Position your brand in verified, trusted residential societies for stronger influence."
       },
       {
-        "heading": "Be the Early Bird",
-        "description": "Get ahead of your competitors in a space still fresh and unsaturated."
+        "heading": "Early Advantage in a Growing Channel",
+        "description": "Stay ahead by leveraging an emerging, high-impact advertising medium."
       }
     ]
   },
@@ -146,19 +160,19 @@
       },
       {
         "title": "Lift Branding Panels",
-        "description": "High-frequency residential visibility inside towers and high-footfall common movement zones."
+        "description": "Inside lifts, where attention is guaranteed—drive recall and conversions."
       },
       {
         "title": "Notice Board Advertising",
-        "description": "Persistent visibility on trusted community notice spaces where residents routinely engage."
+        "description": "Reach residents through trusted society notice boards."
       },
       {
         "title": "Main Gate Branding",
-        "description": "Prime impact placements at key touchpoints for recurring household impressions."
+        "description": "High-impact branding at society entry and exit gates for both residents and visitors."
       },
       {
         "title": "Society Event Sponsorship",
-        "description": "Sponsor society celebrations and drive recall through contextual, community-first activations."
+        "description": "Sponsor society events to build strong brand recall through community engagement."
       }
     ]
   },
@@ -183,8 +197,16 @@
       }
     ],
     "flow_messages": [
-      { "type": "query", "text": "New campaign request for our society", "time": "05:41 pm" },
-      { "type": "response", "text": "Campaign approved and live!", "time": "05:42 pm" }
+      {
+        "type": "query",
+        "text": "New campaign request for our society",
+        "time": "05:41 pm"
+      },
+      {
+        "type": "response",
+        "text": "Campaign approved and live!",
+        "time": "05:42 pm"
+      }
     ]
   },
   "brands": {

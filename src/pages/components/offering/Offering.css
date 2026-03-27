@@ -12,7 +12,7 @@
 .offering_accent_bar {
   width: 4px;
   height: 48px;
-  background: linear-gradient(180deg, #01AA23 0%, #0193FF 100%);
+  background: linear-gradient(180deg, #01aa23 0%, #0193ff 100%);
   border-radius: 4px;
   margin-bottom: 1rem;
 }
@@ -47,9 +47,11 @@
   right: 5%;
   height: 4px;
   margin-top: -2px;
-  background: linear-gradient(90deg, #01AA23 0%, #0193FF 100%);
+  background: linear-gradient(90deg, #01aa23 0%, #0193ff 100%);
   border-radius: 4px;
-  box-shadow: 0 2px 12px rgba(1, 170, 35, 0.3), 0 2px 20px rgba(1, 147, 255, 0.2);
+  box-shadow:
+    0 2px 12px rgba(1, 170, 35, 0.3),
+    0 2px 20px rgba(1, 147, 255, 0.2);
   z-index: 0;
 }
 
@@ -78,7 +80,7 @@
 }
 
 .offering_stepper_track::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #01AA23, #0193FF);
+  background: linear-gradient(90deg, #01aa23, #0193ff);
   border-radius: 3px;
 }
 
@@ -99,14 +101,20 @@
   align-items: flex-start;
   text-align: left;
   cursor: pointer;
-  transition: opacity 0.4s ease, transform 0.2s ease, box-shadow 0.4s ease,
-    border-color 0.4s ease, background 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.2s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease;
   scroll-snap-align: center;
 }
 
 .offering_stepper_card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(1, 170, 35, 0.12), 0 6px 28px rgba(1, 147, 255, 0.08);
+  box-shadow:
+    0 6px 24px rgba(1, 170, 35, 0.12),
+    0 6px 28px rgba(1, 147, 255, 0.08);
 }
 
 /* Completed & Active = fully opaque */
@@ -117,8 +125,11 @@
 
 .offering_stepper_card_active {
   background: rgba(255, 255, 255, 0.9);
-  border: 2px solid #01AA23;
-  box-shadow: 0 0 0 1px rgba(1, 147, 255, 0.3), 0 4px 20px rgba(1, 170, 35, 0.2), 0 4px 24px rgba(1, 147, 255, 0.15);
+  border: 2px solid #01aa23;
+  box-shadow:
+    0 0 0 1px rgba(1, 147, 255, 0.3),
+    0 4px 20px rgba(1, 170, 35, 0.2),
+    0 4px 24px rgba(1, 147, 255, 0.15);
   transform: scale(1.02);
 }
 
@@ -145,19 +156,26 @@
   width: 40px;
   height: 40px;
   border-radius: 10px;
-  background: linear-gradient(90deg, rgba(1, 170, 35, 0.18) 0%, rgba(1, 147, 255, 0.18) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(1, 170, 35, 0.18) 0%,
+    rgba(1, 147, 255, 0.18) 100%
+  );
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #01AA23;
+  color: #01aa23;
   margin-bottom: 0.75rem;
   flex-shrink: 0;
   font-size: 1.15rem;
-  transition: background 0.4s ease, color 0.4s ease, transform 0.3s ease;
+  transition:
+    background 0.4s ease,
+    color 0.4s ease,
+    transform 0.3s ease;
 }
 
 .offering_stepper_card_active .offering_stepper_card_icon {
-  background: linear-gradient(90deg, #01AA23 0%, #0193FF 100%);
+  background: linear-gradient(90deg, #01aa23 0%, #0193ff 100%);
   color: white;
   box-shadow: 0 2px 10px rgba(1, 170, 35, 0.35);
 }
@@ -192,15 +210,26 @@
   padding: 2rem;
   box-shadow: 0 6px 28px rgba(1, 170, 35, 0.12);
   border: 1px solid rgba(1, 170, 35, 0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   text-align: left;
   animation: offeringCardSlide 0.6s ease-out both;
 }
 
-.offering_card:nth-child(1) { animation-delay: 0.1s; }
-.offering_card:nth-child(2) { animation-delay: 0.2s; }
-.offering_card:nth-child(3) { animation-delay: 0.3s; }
-.offering_card:nth-child(4) { animation-delay: 0.4s; }
+.offering_card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.offering_card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.offering_card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.offering_card:nth-child(4) {
+  animation-delay: 0.4s;
+}
 
 .offering_card:hover {
   transform: translateY(-8px);
@@ -223,7 +252,7 @@
   width: 60px;
   height: 60px;
   border-radius: 18px;
-  background: linear-gradient(135deg, #01AA23 0%, #0193FF 100%);
+  background: linear-gradient(135deg, #01aa23 0%, #0193ff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -272,11 +301,10 @@
 
 /* -----------------------RESPONSIVE ADJUSTMENTS------------------- */
 /* ============================= */
-/* Tablets (iPad / small laptop) */ 
+/* Tablets (iPad / small laptop) */
 /* ============================= */
 
 @media (max-width: 1024px) {
-
   .offering_header {
     margin-bottom: 2rem;
   }
@@ -307,16 +335,13 @@
   .offering_stepper_card {
     width: 180px;
   }
-
 }
-
 
 /* ============================= */
 /* Large Phones (iPhone etc) */
 /* ============================= */
 
 @media (max-width: 768px) {
-
   .offering_header {
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -333,19 +358,38 @@
 
   /* ---------- MARQUEE FIX ---------- */
 
-  /* show only one row on phones */
+  /* ❌ remove display:none */
   .offering_marquee_row.reverse {
-    display: none;
+    display: block;
+    margin-top: -6px; /* 🔥 overlap both rows */
   }
 
+  .offering_marquee_shell {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .offering_marquee_row {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  /* 🔥 SAME SPEED FOR BOTH */
+  .offering_marquee_track {
+    animation-duration: 14s;
+  }
+
+  /* 🔥 make chips tighter so both rows feel like one */
   .offering_marquee_chip {
     padding: 10px 16px;
     font-size: 0.9rem;
     margin: 0 8px;
   }
 
-  .offering_marquee_track {
-    animation-duration: 14s;
+  /* optional: reduce gap between rows visually */
+  .offering_marquee_row + .offering_marquee_row {
+    margin-top: -10px;
   }
 
   /* ---------- STEPPER ---------- */
@@ -388,16 +432,13 @@
     height: 48px;
     font-size: 1.3rem;
   }
-
 }
-
 
 /* ============================= */
 /* Standard Smartphones */
 /* ============================= */
 
 @media (max-width: 480px) {
-
   .offering_accent_bar {
     height: 36px;
   }
@@ -410,12 +451,20 @@
     font-size: 0.9rem;
   }
 
-  /* marquee smaller chips */
+/* 🔥 slightly bigger for 480px screens */
+.offering_marquee_chip {
+  padding: 9px 16px !important;
+  font-size: 0.88rem !important;
+  margin: 0 8px !important;
+  border-radius: 12px;
+}
 
-  .offering_marquee_chip {
-    padding: 8px 14px;
+  .offering_marquee_chip svg {
     font-size: 0.85rem;
-    border-radius: 12px;
+  }
+
+  .offering_marquee_track {
+    animation-duration: 12s; /* smoother on small screens */
   }
 
   .offering_stepper_wrap {
@@ -438,10 +487,6 @@
     font-size: 0.85rem;
   }
 
-  .offering_stepper_card_time {
-    font-size: 0.7rem;
-  }
-
   .offering_card {
     padding: 1.3rem;
     border-radius: 18px;
@@ -454,22 +499,34 @@
   .offering_card p {
     font-size: 0.9rem;
   }
-
 }
-
 
 /* ============================= */
 /* Small phones (iPhone SE etc) */
 /* ============================= */
 
 @media (max-width: 360px) {
-
   .offering_title {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
 
   .offering_subtitle {
+    font-size: 0.8rem;
+  }
+
+  /* 🔥 slightly bigger + balanced */
+  .offering_marquee_chip {
+    padding: 7px 12px !important;
+    font-size: 0.8rem !important;
+    margin: 0 6px !important;
+  }
+
+  .offering_marquee_chip svg {
     font-size: 0.85rem;
+  }
+
+  .offering_marquee_track {
+    animation-duration: 10s; /* faster = smoother feel */
   }
 
   .offering_stepper_card {
@@ -485,5 +542,4 @@
     height: 42px;
     font-size: 1.2rem;
   }
-
 }

@@ -79,7 +79,7 @@ const Banner_slider = () => {
         <div className="video_hero_left">
           <span className="video_hero_badge">
             <FaCheckCircle />
-            Verified Society Media Network
+            India's Verified Society Advertising Network
           </span>
           <h1>{title}</h1>
           <p>{description}</p>

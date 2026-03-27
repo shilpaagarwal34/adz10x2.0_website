@@ -1,133 +1,159 @@
-import React, { useEffect, useRef } from 'react'
-import data from "../../data.json"
+import React, { useEffect, useRef } from "react";
+import data from "../../data.json";
 
 const About = () => {
-  const { title, description_one, description_two } = data.about_us
-  const canvasRef = useRef()
-  const animRef   = useRef()
+  const { title, description_one, description_two } = data.about_us;
+  const canvasRef = useRef();
+  const animRef = useRef();
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
 
     const resize = () => {
-      canvas.width  = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
-    resize()
-    window.addEventListener('resize', resize)
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
 
     /* ── nodes: center + 4 satellites ── */
-    const CX = () => canvas.width  * 0.5
-    const CY = () => canvas.height * 0.5
+    const CX = () => canvas.width * 0.5;
+    const CY = () => canvas.height * 0.5;
 
     /* flowing energy packets along edges */
     const edges = [
-      { from: 0, to: 1 }, { from: 1, to: 0 },
-      { from: 0, to: 2 }, { from: 2, to: 0 },
-      { from: 0, to: 3 }, { from: 3, to: 0 },
-      { from: 0, to: 4 }, { from: 4, to: 0 },
-    ]
+      { from: 0, to: 1 },
+      { from: 1, to: 0 },
+      { from: 0, to: 2 },
+      { from: 2, to: 0 },
+      { from: 0, to: 3 },
+      { from: 3, to: 0 },
+      { from: 0, to: 4 },
+      { from: 4, to: 0 },
+    ];
 
     const packets = edges.map((e, i) => ({
       ...e,
       t: (i * 0.22) % 1,
       speed: 0.003 + Math.random() * 0.002,
-      color: e.from === 0 ? '#01aa23' : '#0193ff',
-    }))
+      color: e.from === 0 ? "#01aa23" : "#0193ff",
+    }));
 
     /* background particles */
     const dust = Array.from({ length: 35 }, () => ({
-      x: Math.random(), y: Math.random(),
+      x: Math.random(),
+      y: Math.random(),
       r: Math.random() * 1.5 + 0.3,
       vx: (Math.random() - 0.5) * 0.0003,
       vy: (Math.random() - 0.5) * 0.0003,
       a: Math.random() * 0.3 + 0.07,
-      c: Math.random() > 0.5 ? '#01aa23' : '#0193ff',
-    }))
+      c: Math.random() > 0.5 ? "#01aa23" : "#0193ff",
+    }));
 
-    let t = 0
+    let t = 0;
 
     const getNodePos = () => {
-      const cx = CX(), cy = CY()
-      const rx = Math.min(cx, cy) * 0.62
+      const cx = CX(),
+        cy = CY();
+      const rx = Math.min(cx, cy) * 0.62;
       return [
-        { x: cx,           y: cy            },          // 0 center
-        { x: cx,           y: cy - rx       },          // 1 top
-        { x: cx + rx,      y: cy            },          // 2 right
-        { x: cx,           y: cy + rx       },          // 3 bottom
-        { x: cx - rx,      y: cy            },          // 4 left
-      ]
-    }
+        { x: cx, y: cy }, // 0 center
+        { x: cx, y: cy - rx }, // 1 top
+        { x: cx + rx, y: cy }, // 2 right
+        { x: cx, y: cy + rx }, // 3 bottom
+        { x: cx - rx, y: cy }, // 4 left
+      ];
+    };
 
     const draw = () => {
-      t += 0.008
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
-      const W = canvas.width, H = canvas.height
-      const nodes = getNodePos()
+      t += 0.008;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const W = canvas.width,
+        H = canvas.height;
+      const nodes = getNodePos();
 
       /* dust */
-      dust.forEach(d => {
-        d.x += d.vx; d.y += d.vy
-        if (d.x < 0) d.x = 1; if (d.x > 1) d.x = 0
-        if (d.y < 0) d.y = 1; if (d.y > 1) d.y = 0
-        ctx.beginPath()
-        ctx.arc(d.x * W, d.y * H, d.r, 0, Math.PI * 2)
-        ctx.fillStyle = d.c + Math.floor(d.a * 255).toString(16).padStart(2, '0')
-        ctx.fill()
-      })
+      dust.forEach((d) => {
+        d.x += d.vx;
+        d.y += d.vy;
+        if (d.x < 0) d.x = 1;
+        if (d.x > 1) d.x = 0;
+        if (d.y < 0) d.y = 1;
+        if (d.y > 1) d.y = 0;
+        ctx.beginPath();
+        ctx.arc(d.x * W, d.y * H, d.r, 0, Math.PI * 2);
+        ctx.fillStyle =
+          d.c +
+          Math.floor(d.a * 255)
+            .toString(16)
+            .padStart(2, "0");
+        ctx.fill();
+      });
 
       /* edge lines — curved bezier */
-      edges.forEach(e => {
-        const a = nodes[e.from], b = nodes[e.to]
-        const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2
-        const nx = -(b.y - a.y) * 0.18, ny = (b.x - a.x) * 0.18
-        ctx.beginPath()
-        ctx.moveTo(a.x, a.y)
-        ctx.quadraticCurveTo(mx + nx, my + ny, b.x, b.y)
-        const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y)
-        grad.addColorStop(0, 'rgba(1,170,35,0.35)')
-        grad.addColorStop(1, 'rgba(1,147,255,0.35)')
-        ctx.strokeStyle = grad
-        ctx.lineWidth = 1.2
-        ctx.setLineDash([5, 6])
-        ctx.stroke()
-        ctx.setLineDash([])
-      })
+      edges.forEach((e) => {
+        const a = nodes[e.from],
+          b = nodes[e.to];
+        const mx = (a.x + b.x) / 2,
+          my = (a.y + b.y) / 2;
+        const nx = -(b.y - a.y) * 0.18,
+          ny = (b.x - a.x) * 0.18;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.quadraticCurveTo(mx + nx, my + ny, b.x, b.y);
+        const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+        grad.addColorStop(0, "rgba(1,170,35,0.35)");
+        grad.addColorStop(1, "rgba(1,147,255,0.35)");
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.2;
+        ctx.setLineDash([5, 6]);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      });
 
       /* energy packets */
-      packets.forEach(pk => {
-        pk.t += pk.speed
-        if (pk.t > 1) pk.t = 0
-        const a = nodes[pk.from], b = nodes[pk.to]
-        const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2
-        const nx = -(b.y - a.y) * 0.18, ny = (b.x - a.x) * 0.18
-        const tt = pk.t
-        const x = (1-tt)*(1-tt)*a.x + 2*(1-tt)*tt*(mx+nx) + tt*tt*b.x
-        const y = (1-tt)*(1-tt)*a.y + 2*(1-tt)*tt*(my+ny) + tt*tt*b.y
-        const glow = ctx.createRadialGradient(x, y, 0, x, y, 7)
-        glow.addColorStop(0, pk.color + 'ff')
-        glow.addColorStop(1, pk.color + '00')
-        ctx.beginPath()
-        ctx.arc(x, y, 7, 0, Math.PI * 2)
-        ctx.fillStyle = glow
-        ctx.fill()
-        ctx.beginPath()
-        ctx.arc(x, y, 3, 0, Math.PI * 2)
-        ctx.fillStyle = pk.color
-        ctx.fill()
-      })
+      packets.forEach((pk) => {
+        pk.t += pk.speed;
+        if (pk.t > 1) pk.t = 0;
+        const a = nodes[pk.from],
+          b = nodes[pk.to];
+        const mx = (a.x + b.x) / 2,
+          my = (a.y + b.y) / 2;
+        const nx = -(b.y - a.y) * 0.18,
+          ny = (b.x - a.x) * 0.18;
+        const tt = pk.t;
+        const x =
+          (1 - tt) * (1 - tt) * a.x +
+          2 * (1 - tt) * tt * (mx + nx) +
+          tt * tt * b.x;
+        const y =
+          (1 - tt) * (1 - tt) * a.y +
+          2 * (1 - tt) * tt * (my + ny) +
+          tt * tt * b.y;
+        const glow = ctx.createRadialGradient(x, y, 0, x, y, 7);
+        glow.addColorStop(0, pk.color + "ff");
+        glow.addColorStop(1, pk.color + "00");
+        ctx.beginPath();
+        ctx.arc(x, y, 7, 0, Math.PI * 2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x, y, 3, 0, Math.PI * 2);
+        ctx.fillStyle = pk.color;
+        ctx.fill();
+      });
 
-      animRef.current = requestAnimationFrame(draw)
-    }
-    draw()
+      animRef.current = requestAnimationFrame(draw);
+    };
+    draw();
 
     return () => {
-      cancelAnimationFrame(animRef.current)
-      window.removeEventListener('resize', resize)
-    }
-  }, [])
+      cancelAnimationFrame(animRef.current);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
 
   return (
     <>
@@ -460,18 +486,17 @@ const About = () => {
       <section className="about_content section_padding" id="about">
         <div className="container">
           <div className="row">
-
             {/* ── LEFT TEXT (untouched) ── */}
             <div className="col-lg-5">
               <h1 className="gradient-text mb-3">{title}</h1>
               <div dangerouslySetInnerHTML={{ __html: description_one }} />
-              <p className="paragraph2">{description_two}</p>
+              <div className="paragraph2" dangerouslySetInnerHTML={{ __html: description_two }}
+              />
             </div>
 
             {/* ── RIGHT DIAGRAM ── */}
             <div className="about_img col-lg-7 mt-4 mt-lg-0">
               <div className="afd_wrap">
-
                 {/* canvas — draws bezier edges + energy packets + dust */}
                 <canvas className="afd_canvas" ref={canvasRef} />
 
@@ -504,7 +529,6 @@ const About = () => {
 
                 {/* ── NODE GRID ── */}
                 <div className="afd_grid">
-
                   {/* CENTER */}
                   <div className="afd_center_node">
                     <div className="center_card">
@@ -522,8 +546,16 @@ const About = () => {
                   <div className="afd_node nd_top">
                     <div className="sat_card sc_blue">
                       <div className="sat_icon si_b">📍</div>
-                      <p className="sat_title">Hyperlocal<br/>Reach</p>
-                      <p className="sat_sub">Monetizable<br/>Screens</p>
+                      <p className="sat_title">
+                        Hyperlocal
+                        <br />
+                        Reach
+                      </p>
+                      <p className="sat_sub">
+                        Monetizable
+                        <br />
+                        Screens
+                      </p>
                     </div>
                   </div>
 
@@ -531,8 +563,16 @@ const About = () => {
                   <div className="afd_node nd_right">
                     <div className="sat_card sc_purple">
                       <div className="sat_icon si_p">🏷</div>
-                      <p className="sat_title">Brands &amp;<br/>Campaigns</p>
-                      <p className="sat_sub">Verified<br/>Advertisers</p>
+                      <p className="sat_title">
+                        Brands &amp;
+                        <br />
+                        Campaigns
+                      </p>
+                      <p className="sat_sub">
+                        Verified
+                        <br />
+                        Advertisers
+                      </p>
                     </div>
                   </div>
 
@@ -540,7 +580,11 @@ const About = () => {
                   <div className="afd_node nd_bottom">
                     <div className="sat_card sc_amber">
                       <div className="sat_icon si_a">💰</div>
-                      <p className="sat_title">Income<br/>Flow</p>
+                      <p className="sat_title">
+                        Income
+                        <br />
+                        Flow
+                      </p>
                       <p className="sat_sub">For Societies</p>
                     </div>
                   </div>
@@ -549,28 +593,33 @@ const About = () => {
                   <div className="afd_node nd_left">
                     <div className="sat_card sc_green">
                       <div className="sat_icon si_g">🏘</div>
-                      <p className="sat_title">Residential<br/>Societies</p>
-                      <p className="sat_sub">Gated<br/>Communities</p>
+                      <p className="sat_title">
+                        Residential
+                        <br />
+                        Societies
+                      </p>
+                      <p className="sat_sub">
+                        Gated
+                        <br />
+                        Communities
+                      </p>
                     </div>
                   </div>
-
-                </div>{/* /afd_grid */}
-
+                </div>
+                {/* /afd_grid */}
               </div>
             </div>
-
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default About
+export default About;
 
 // import React from 'react'
 // import data from "../../data.json"
-
 
 // const About = () => {
 

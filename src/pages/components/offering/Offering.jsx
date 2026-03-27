@@ -1,4 +1,3 @@
-// -----------CODE PART:4-------------------
 import React, { useState, useEffect } from "react";
 import {
   FaRegCheckCircle,
@@ -27,11 +26,11 @@ const offeringIconMap = {
 };
 
 const PROCESS_STEPS = [
-  { id: "create", heading: "Create Campaign", icon: FaPlusCircle, time: "05:40 pm" },
-  { id: "approve", heading: "Society Approves", icon: FaClipboardCheck, time: "05:41 pm" },
-  { id: "live", heading: "Go Live", icon: FaPlay, time: "05:42 pm" },
-  { id: "progress", heading: "Campaign Runs", icon: FaBroadcastTower, time: "05:43 pm" },
-  { id: "complete", heading: "Complete", icon: FaCheckCircle, time: "05:44 pm" },
+  { id: "create", heading: "Create Campaign", icon: FaPlusCircle },
+  { id: "approve", heading: "Society Approves", icon: FaClipboardCheck },
+  { id: "live", heading: "Go Live", icon: FaPlay },
+  { id: "progress", heading: "Campaign Runs", icon: FaBroadcastTower },
+  { id: "complete", heading: "Complete", icon: FaCheckCircle },
 ];
 
 const STEP_COUNT = PROCESS_STEPS.length;
@@ -39,9 +38,15 @@ const STEP_DURATION_MS = 1700;
 
 const Offering = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const { title, sub_heading, offering_content } = data.offering;
+
+  const { title, sub_heading, offering_content = [] } = data.offering || {};
+
   const offeringLabels = offering_content.map((item) => item.heading);
-  const marqueeRow = [...offeringLabels, ...offeringLabels];
+
+  // 🔥 Increased repetition for smooth loop
+  const topMarqueeRow = [...offeringLabels, ...offeringLabels, ...offeringLabels];
+  const newLabels = ["Visibility", "Leads", "Sales", "Insights"];
+  const bottomMarqueeRow = [...newLabels, ...newLabels, ...newLabels, ...newLabels];
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -53,28 +58,40 @@ const Offering = () => {
   return (
     <>
       <section className="our_offering_section section_padding">
+        {/* 🔥 MARQUEE */}
         <div className="offering_marquee_full_bleed">
           <div className="offering_marquee_shell">
+
+            {/* TOP → RIGHT TO LEFT */}
             <div className="offering_marquee_row">
               <div className="offering_marquee_track">
-                {marqueeRow.map((label, index) => (
-                  <div key={`${label}-${index}`} className="offering_marquee_chip">
+                {topMarqueeRow.map((label, index) => (
+                  <div
+                    key={`${label}-${index}`}
+                    className="offering_marquee_chip"
+                  >
                     <FaBolt />
                     <span>{label}</span>
                   </div>
                 ))}
               </div>
             </div>
+
+            {/* BOTTOM → LEFT TO RIGHT */}
             <div className="offering_marquee_row reverse">
               <div className="offering_marquee_track">
-                {marqueeRow.map((label, index) => (
-                  <div key={`${label}-reverse-${index}`} className="offering_marquee_chip">
+                {bottomMarqueeRow.map((label, index) => (
+                  <div
+                    key={`${label}-reverse-${index}`}
+                    className="offering_marquee_chip"
+                  >
                     <FaRegCheckCircle />
                     <span>{label}</span>
                   </div>
                 ))}
               </div>
             </div>
+
           </div>
         </div>
 
@@ -85,6 +102,7 @@ const Offering = () => {
             <p className="offering_subtitle">{sub_heading}</p>
           </div>
 
+          {/* 🔥 STEPPER */}
           <div className="offering_stepper_wrap">
             <div className="offering_stepper_line" aria-hidden="true" />
             <div className="offering_stepper_track">
@@ -92,8 +110,12 @@ const Offering = () => {
                 const Icon = step.icon;
                 const isCompleted = index < activeStep;
                 const isActive = index === activeStep;
-                const isFuture = index > activeStep;
-                const state = isCompleted ? "completed" : isActive ? "active" : "future";
+                const state = isCompleted
+                  ? "completed"
+                  : isActive
+                  ? "active"
+                  : "future";
+
                 return (
                   <div
                     key={step.id}
@@ -101,24 +123,30 @@ const Offering = () => {
                     onClick={() => setActiveStep(index)}
                     role="button"
                     tabIndex={0}
-                    onKeyDown={(e) => e.key === "Enter" && setActiveStep(index)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        setActiveStep(index);
+                      }
+                    }}
                   >
                     <div className="offering_stepper_card_icon">
                       <Icon />
                     </div>
-                    <h3 className="offering_stepper_card_heading">{step.heading}</h3>
-                    <span className="offering_stepper_card_time">{step.time}</span>
+                    <h3 className="offering_stepper_card_heading">
+                      {step.heading}
+                    </h3>
                   </div>
                 );
               })}
             </div>
           </div>
 
+          {/* 🔥 CARDS */}
           <div className="offering_cards_grid">
-            {offering_content.map((item) => {
+            {offering_content.map((item, index) => {
               const Icon = offeringIconMap[item.icon] || FaGlobe;
               return (
-                <article key={item.heading} className="offering_card">
+                <article key={`${item.heading}-${index}`} className="offering_card">
                   <div className="offering_card_icon">
                     <Icon />
                   </div>
@@ -130,21 +158,30 @@ const Offering = () => {
           </div>
         </div>
 
-        {/* 🔥 High-level 3D Marquee + Gradient Hover */}
+        {/* 🔥 FIXED MARQUEE CSS */}
         <style>{`
+          .offering_marquee_row {
+            overflow: hidden;
+            width: 100%;
+          }
+
           .offering_marquee_track {
             display: flex;
+            width: max-content;
             animation: marquee 18s linear infinite;
-            transform-style: preserve-3d;
           }
+
           .offering_marquee_row.reverse .offering_marquee_track {
             animation-direction: reverse;
           }
+
           @keyframes marquee {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
+
           .offering_marquee_chip {
+            flex-shrink: 0;
             display: inline-flex;
             align-items: center;
             background: #fff;
@@ -156,25 +193,20 @@ const Offering = () => {
             box-shadow:
               0 10px 25px rgba(0,0,0,0.15),
               0 20px 50px rgba(0,0,0,0.1) inset;
-            transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateZ(0);
-            transition: transform 0.5s ease, box-shadow 0.5s ease, filter 0.5s ease, background 0.5s ease;
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
           }
+
           .offering_marquee_chip span {
             margin-left: 10px;
           }
+
           .offering_marquee_chip:hover {
-            transform: scale(1.25) rotateX(8deg) rotateY(-8deg) translateZ(30px);
+            transform: scale(1.1);
             box-shadow:
-              0 25px 60px rgba(0,0,0,0.35),
-              0 15px 35px rgba(0,0,0,0.2) inset;
+              0 20px 40px rgba(0,0,0,0.25),
+              0 10px 20px rgba(0,0,0,0.15) inset;
             background: linear-gradient(to right, #01AA23, #0193FF);
             color: #fff;
-            animation: shine 1s ease-in-out infinite alternate;
-          }
-          @keyframes shine {
-            0% { filter: brightness(1); }
-            50% { filter: brightness(1.3); }
-            100% { filter: brightness(1); }
           }
         `}</style>
       </section>
@@ -183,9 +215,6 @@ const Offering = () => {
 };
 
 export default Offering;
-
-
-
 
 // -----------CODE PART:3-------------------
 // import React, { useState, useEffect } from "react";
@@ -371,7 +400,6 @@ export default Offering;
 
 // export default Offering;
 
-
 // -----------CODE PART: 2-------------------
 // import React, { useState, useEffect } from "react";
 // import {
@@ -551,9 +579,6 @@ export default Offering;
 
 // export default Offering;
 
-
-
-
 // -----------CODE PART: 1-------------------
 // import React, { useState, useEffect } from "react";
 // import {
@@ -732,8 +757,6 @@ export default Offering;
 // };
 
 // export default Offering;
-
-
 
 // -----------CODE PART: 0-------------------
 // import React, { useState, useEffect } from "react";

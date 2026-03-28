@@ -6,7 +6,10 @@ import twitter_icon from "../../../assets/social-icons/twitter.svg";
 import google_icon from "../../../assets/social-icons/google.svg";
 import footer_logo from "../../../assets/footer_logo.png";
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
 import { useVisualSettings } from "../../../../context/VisualSettingsContext.jsx";
+
+const WHATSAPP_PRIMARY_E164 = "919271155815";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -74,6 +77,19 @@ const Footer = () => {
                       <img src={facebook_icon} alt="" />
                     </div>
                   </a>
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PRIMARY_E164}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Contact us on WhatsApp"
+                  >
+                    <div className="single-social-icon">
+                      <FaWhatsapp
+                        aria-hidden
+                        style={{ fontSize: 22, color: "#fff" }}
+                      />
+                    </div>
+                  </a>
                 </div>
               </div>
               <div className="col-lg-4 col-6">
@@ -81,19 +97,6 @@ const Footer = () => {
                   <h1>Start a conversation</h1>
                   <a href="mailto:support@adz10x.com">support@adz10x.com</a>
                 </div>
-                <div className="footer-links mb-2">
-                  <h6 className="text-white">Society Onboarding & Society Queries?</h6>
-                  <a href="tel:+919271155815">+91 9271155815</a>
-                </div>
-                 <div className="footer-links mb-2">
-                  <h6 className="text-white">Brand / Company Campaign Queries?</h6>
-                  <a href="tel:+919271155816">+91 9271155816</a>
-                </div>
-                <div className="footer-links mb-2">
-                  <h6 className="text-white">Corporate & Customer Support</h6>
-                  <a href="tel:+919271155817">+91 9271155817</a>
-                </div>
-                
               </div>
               <div className="col-lg-3 col-6">
                 <div className="footer_more">

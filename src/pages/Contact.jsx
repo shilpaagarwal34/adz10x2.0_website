@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaMapMarkerAlt, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import arrow_right from "../assets/arrow-right.svg";
 import successIcon from "/success-icon.svg";
 import { Link } from "react-router-dom";
@@ -82,9 +82,20 @@ const Contact = () => {
                   <Link to="mailto:support@adz10x.com">support@adz10x.com</Link>
                 </p>
                 <p className="d-flex align-items-start">
-                  <FaPhoneAlt className="me-2 text-primary mt-1" />
-                  {/* <Link to="tel:+91 90115 30248">+91 90115 30248</Link> */}
-                  <Link to="tel:+919271155815">+91 92711 55815</Link>
+                  <a
+                    href="https://wa.me/919271155815"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="d-flex align-items-start text-decoration-none text-body"
+                    aria-label="Open WhatsApp chat"
+                  >
+                    <FaWhatsapp
+                      className="me-2 mt-1"
+                      style={{ fontSize: "1.1rem", color: "#25D366" }}
+                      aria-hidden
+                    />
+                    <span>WhatsApp</span>
+                  </a>
                 </p>
 
                 <div className="mt-4">

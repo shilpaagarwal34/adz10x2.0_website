@@ -9,7 +9,6 @@ const Brands = lazy(() => import('./components/brands/Brands.jsx'));
 const Banner_One = lazy(() => import('./components/banner_1/Banner_One.jsx'));
 const Banner_Two = lazy(() => import('./components/banner_2/Banner_Two.jsx'));
 const Accordian = lazy(() => import('./components/accordian/Accordian.jsx'));
-const Company_logo = lazy(() => import('./components/company_logo/Company_logo.jsx'));
 
 const Index = () => {
     return (
@@ -30,8 +29,6 @@ const Index = () => {
                 <About />
 
                 <Accordian />
-
-                <Company_logo />
             </Suspense>
 
         </>

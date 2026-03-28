@@ -65,7 +65,7 @@ function getBotReply(message, pathname) {
     q.includes("phone") ||
     q.includes("email")
   ) {
-    return "Support channels: support@adz10x.com, +91 9271155815, +91 9271155816, +91 9271155817. You can also use the Contact page form.";
+    return "Support: email support@adz10x.com, use the Contact page form, or tap the WhatsApp icon in the footer or on the Contact page to chat (phone numbers are not shown on the site).";
   }
 
   if (

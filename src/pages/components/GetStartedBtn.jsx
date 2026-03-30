@@ -6,7 +6,7 @@ export default function GetStartedBtn({ accountType = "default" }) {
     (window.location.hostname === "localhost" ||
       window.location.hostname === "127.0.0.1");
 
-  const registerBase = isLocal ? "http://localhost:4000" : "https://adz10x.in";
+  const registerBase = isLocal ? "http://localhost:4000" : "https://adz10x.com";
 
   const signupUrl =
     accountType === "society"

@@ -6,9 +6,9 @@ import twitter_icon from "../../../assets/social-icons/twitter.svg";
 import google_icon from "../../../assets/social-icons/google.svg";
 import footer_logo from "../../../assets/footer_logo.png";
 import { Link } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa";
+// import { FaWhatsapp } from "react-icons/fa";
 import { useVisualSettings } from "../../../../context/VisualSettingsContext.jsx";
-
+import whatsapp_icon from "../../../assets/social-icons/whatsapp.svg";
 const WHATSAPP_PRIMARY_E164 = "919271155815";
 
 const Footer = () => {
@@ -77,7 +77,7 @@ const Footer = () => {
                       <img src={facebook_icon} alt="" />
                     </div>
                   </a>
-                  <a
+                  {/* <a
                     href={`https://wa.me/${WHATSAPP_PRIMARY_E164}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -86,7 +86,32 @@ const Footer = () => {
                     <div className="single-social-icon">
                       <FaWhatsapp
                         aria-hidden
-                        style={{ fontSize: 22, color: "#fff" }}
+                        style={{ fontSize: 22, color: "#fff"}}
+                      />
+                    </div>
+                  </a> */}
+                  <a
+                    href={`https://wa.me/${WHATSAPP_PRIMARY_E164}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Contact us on WhatsApp"
+                  >
+                    <div
+                      className="single-social-icon"
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <img
+                        src={whatsapp_icon}
+                        alt="whatsapp"
+                        style={{
+                          width: "22px",
+                          height: "22px",
+                          objectFit: "contain",
+                        }}
                       />
                     </div>
                   </a>
@@ -141,4 +166,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
